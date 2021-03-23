@@ -1,18 +1,18 @@
 //
-//  ChainxWebView.m
+//  WalletWebView.m
 //  FlutterPluginSignalDemo
 //
 //  Created by 杨钰棋 on 2021/3/17.
 //
 
-#import "ChainXWebView.h"
+#import "WalletWebView.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 
-@interface ChainXWebView ()
+@interface WalletWebView ()
 
 @end
 
-@implementation ChainXWebView
+@implementation WalletWebView
 
 - (instancetype)init
 {

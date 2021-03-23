@@ -6,7 +6,7 @@
 //
 
 #import "ViewController.h"
-//#import "ChainXWebView.h"
+//#import "WalletWebView.h"
 #import "WebViewRunner.h"
 #import "Keyring.h"
 
@@ -35,7 +35,7 @@
 - (void)jumpToFlutter
 {
     self.webView = [[WebViewRunner alloc] init];
-    [self.webView launchWithKeyring:[[ServiceKeyring alloc] init] Keyring:[[Keyring alloc] init] block:^{
+    [self.webView launchWithKeyring:[[ServiceKeyring alloc] init] keyringStorage:[[Keyring alloc] init] block:^{
         
     } jsCode:@""];
     

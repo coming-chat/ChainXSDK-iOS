@@ -6,10 +6,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SubstrateService.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PolkawalletApi : NSObject
+@property (nonatomic, strong) NetworkParams *connectedNode;
+@property (nonatomic, strong) ApiKeyring *keyring;
+//@property (nonatomic, strong) ApiSetting *setting;
+//@property (nonatomic, strong) ApiAccount *account;
+//@property (nonatomic, strong) ApiTx *tx;
+//@property (nonatomic, strong) ApiWalletConnect *walletConnect;
+
+//  final SubScanApi subScan = SubScanApi();
 
 @end
 

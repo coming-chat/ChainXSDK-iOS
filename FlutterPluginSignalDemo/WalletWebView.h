@@ -1,5 +1,5 @@
 //
-//  ChainxWebView.h
+//  WalletWebView.h
 //  FlutterPluginSignalDemo
 //
 //  Created by 杨钰棋 on 2021/3/17.
@@ -9,7 +9,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChainXWebView : WKWebView
+@interface WalletWebView : WKWebView
 
 @end
 

@@ -9,7 +9,10 @@
 
 @implementation SubstrateService
 
-- (instancetype)initWithKeyring:(ServiceKeyring *)keyringStorage webViewRunner:(WebViewRunner *)webViewParam block:(void (^)(void))onInitiatedBlock jsCode:(NSString *)jsCode
+- (instancetype)initWithKeyring:(Keyring *)keyring
+                  webViewRunner:(WebViewRunner *)webViewParam
+                          block:(void (^)(void))onInitiatedBlock
+                         jsCode:(NSString *)jsCode
 {
     if (self = [super init]) {
         self.keyring = [[ServiceKeyring alloc] init];
@@ -24,7 +27,7 @@
         self.walletConnect.serviceRoot = self;
         self.webView = webViewParam ?:[[WebViewRunner alloc] init];
         
-        [self.webView launchWithKeyring:self.keyring Keyring:self.keyrings block:onInitiatedBlock jsCode:jsCode];
+        [self.webView launchWithKeyring:self.keyring keyringStorage:keyring block:onInitiatedBlock jsCode:jsCode];
     }
     return self;
 }

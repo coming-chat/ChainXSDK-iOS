@@ -7,10 +7,13 @@
 
 #import <Foundation/Foundation.h>
 #import "KeyPairData.h"
+@class KeyringPrivateStore;
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Keyring : NSObject
+@property (nonatomic, strong) KeyringPrivateStore *store;
+
 @property (nonatomic, assign) int ss58;
 
 @property (nonatomic, strong) KeyPairData *current;
@@ -35,6 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *contacts;
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSDictionary *> *pubKeyAddressMap;
+
+- (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
 
 @end
 

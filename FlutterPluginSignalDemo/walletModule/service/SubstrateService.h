@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) WebViewRunner *webView;
 @property (nonatomic, strong) Keyring *keyrings;
 
-- (instancetype)initWithKeyring:(ServiceKeyring *)keyringStorage
+- (instancetype)initWithKeyring:(Keyring *)keyring
                   webViewRunner:(WebViewRunner *)webViewParam
                           block:(void(^)(void))onInitiatedBlock
                          jsCode:(NSString *)jsCode;

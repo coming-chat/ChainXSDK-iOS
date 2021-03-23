@@ -7,10 +7,12 @@
 
 #import "WebViewRunner.h"
 #import "WeakScriptMessageDelegate.h"
+#import "NSObject+jsonExtention.h"
 
 @interface WebViewRunner ()<WKNavigationDelegate, WKScriptMessageHandler>
 @property (nonatomic, copy) void(^onLaunched) (void);
 @property (nonatomic, strong) NSMutableDictionary<NSString *, void (^)(_Nullable id data)> *msgHandlers;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, void (^)(_Nullable id data)> *msgCompleters;
 @property (nonatomic ,strong) NSDate *date;
 
 @end
@@ -18,15 +20,16 @@
 @implementation WebViewRunner
 
 - (void)launchWithKeyring:(ServiceKeyring *)keyring
-                  Keyring:(Keyring *)keyringStorage
+           keyringStorage:(Keyring *)keyringStorage
                     block:(void (^)(void))onLaunched
                    jsCode:(NSString *)jsCode
 {
     self.msgHandlers = [[NSMutableDictionary alloc] init];
+    self.msgCompleters = [[NSMutableDictionary alloc] init];
     self.evalJavascriptUID = 0;
     self.onLaunched = onLaunched;
     
-    self.web = [[ChainXWebView alloc] init];
+    self.web = [[WalletWebView alloc] init];
     
     self.web.navigationDelegate = self;
     
@@ -56,7 +59,7 @@
                         "}).catch(function(err) {"
                         "  webkit.messageHandlers.callbackHandler.postMessage(JSON.stringify({ path: \"log\", data: err.message }));"
                         "})", code, method];
-    self.msgHandlers[method] = successHandler;
+    self.msgCompleters[method] = successHandler;
     [self.web evaluateJavaScript:script completionHandler:nil];
 }
 
@@ -66,8 +69,28 @@
     if (nodes.count < 1) {
         return @"";
     }
-    [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", [[NSString alloc] initWithData:[NSJSONSerialization dataWithJSONObject:@[nodes.firstObject.endpoint] options:kNilOptions error:nil] encoding:NSUTF8StringEncoding]] successHandler:successHandler];
+    [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", jsonEncodeWithValue(@[nodes.firstObject.endpoint])] successHandler:successHandler];
     return nodes.firstObject.endpoint;
+}
+
+- (void)subscribeMessageWithCode:(NSString *)code
+                         channel:(NSString *)channel
+                        callback:(void (^ _Nullable)(_Nullable id data))callback
+                  successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+{
+    [self addMsgHandlerWithChannel:channel onMessage:callback];
+    [self evalJavascriptWithCode:code successHandler:successHandler];
+}
+
+- (void)addMsgHandlerWithChannel:(NSString *)channel
+                       onMessage:(void (^)(_Nullable id data))onMessage
+{
+    self.msgHandlers[channel] = onMessage;
+}
+
+- (void)removeMsgHandlerWithChannel:(NSString *)channel
+{
+    [self.msgHandlers removeObjectForKey:channel];
 }
 
 #pragma mark WKNavigationDelegate
@@ -84,12 +107,17 @@
     
     NSLog(@"JS 调用了: \n%@ 方法\n传回参数: \n%@",message.name,message.body);
     
-    NSDictionary *msgDict = [NSJSONSerialization JSONObjectWithData:[message.body dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    NSDictionary *msgDict = jsonDecodeWithString(message.body);
     if ([msgDict.allKeys containsObject:@"path"] && [msgDict.allKeys containsObject:@"data"]) {
         NSString *path = msgDict[@"path"];
-        if (self.msgHandlers[path] != nil) {
-            self.msgHandlers[path](msgDict[@"data"]);
-            [self.msgHandlers removeObjectForKey:path];
+        if (self.msgCompleters[path] != nil) {
+            self.msgCompleters[path](msgDict[@"data"]);
+            [self.msgCompleters removeObjectForKey:path];
+        }
+        if ([self.msgHandlers.allKeys containsObject:@"path"]) {
+            if (self.msgHandlers[@"path"]) {
+                self.msgHandlers[path](msgDict[@"data"]);
+            }
         }
     }
 }

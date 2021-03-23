@@ -7,6 +7,20 @@
 
 #import "PolkawalletApi.h"
 
+@interface PolkawalletApi ()
+@property (nonatomic ,strong) SubstrateService *service;
+
+@end
+
 @implementation PolkawalletApi
+
+- (instancetype)initWithService:(SubstrateService *)service
+{
+    self = [super init];
+    if (self) {
+        self.service = service;
+    }
+    return self;
+}
 
 @end

@@ -10,7 +10,6 @@
 #import "LocalStorage.h"
 
 @interface Keyring ()
-@property (nonatomic, strong) KeyringPrivateStore *store;
 
 @end
 
@@ -204,6 +203,11 @@
         // and move all encrypted seeds to new storage
         [self migrateSeeds];
     }
+}
+
+- (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data
+{
+    self.pubKeyAddressMap = data.mutableCopy;
 }
 
 - (void)migrateSeeds

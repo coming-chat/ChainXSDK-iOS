@@ -11,6 +11,11 @@
 		C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; };
 		C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D88260989A70078099F /* NSObject+jsonExtention.m */; };
+		C2721D8E2609CA870078099F /* ApiKeyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D8D2609CA870078099F /* ApiKeyring.m */; };
+		C2721D912609EEC00078099F /* ApiAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D902609EEC00078099F /* ApiAccount.m */; };
+		C2721D942609EED10078099F /* ApiSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D932609EED10078099F /* ApiSetting.m */; };
+		C2721D972609EEF40078099F /* ApiTx.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D962609EEF40078099F /* ApiTx.m */; };
+		C2721D9A2609EF010078099F /* ApiWalletConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D992609EF010078099F /* ApiWalletConnect.m */; };
 		C28B50D526047C4900245864 /* KeyPairData.m in Sources */ = {isa = PBXBuildFile; fileRef = C28B50D426047C4900245864 /* KeyPairData.m */; };
 		C28B50E0260834A000245864 /* LocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C28B50DF260834A000245864 /* LocalStorage.m */; };
 		C2AF0D032601F7D100310BA1 /* SubstrateService.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D022601F7D100310BA1 /* SubstrateService.m */; };
@@ -23,13 +28,13 @@
 		C2AF0D192602006600310BA1 /* Keyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D182602006600310BA1 /* Keyring.m */; };
 		C2AF0D1E26020FBD00310BA1 /* NetworkParams.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */; };
 		C2AF0D2A2603288A00310BA1 /* WeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */; };
-		C2AF0D2E2603450800310BA1 /* ChainXSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D2D2603450800310BA1 /* ChainXSDK.m */; };
+		C2AF0D2E2603450800310BA1 /* WalletSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D2D2603450800310BA1 /* WalletSDK.m */; };
 		C2AF0D31260345A700310BA1 /* PolkawalletApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D30260345A700310BA1 /* PolkawalletApi.m */; };
 		C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D3326034C8800310BA1 /* KeyringStorage.m */; };
 		C2E4FC032601E74E00861B5F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC002601E74E00861B5F /* index.html */; };
 		C2E4FC042601E74E00861B5F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC012601E74E00861B5F /* test.js */; };
 		C2E4FC052601E74E00861B5F /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC022601E74E00861B5F /* main.js */; };
-		C2E4FC0B2601F25500861B5F /* ChainXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4FC092601F25500861B5F /* ChainXWebView.m */; };
+		C2E4FC0B2601F25500861B5F /* WalletWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4FC092601F25500861B5F /* WalletWebView.m */; };
 		C2EB096125EF736200EC965D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096025EF736200EC965D /* AppDelegate.m */; };
 		C2EB096425EF736200EC965D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096325EF736200EC965D /* SceneDelegate.m */; };
 		C2EB096725EF736200EC965D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096625EF736200EC965D /* ViewController.m */; };
@@ -59,6 +64,16 @@
 		C2451A1E25F601CA007AF229 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = ../flutter_module/.ios/Flutter/App.framework; sourceTree = "<group>"; };
 		C2721D87260989A70078099F /* NSObject+jsonExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+jsonExtention.h"; sourceTree = "<group>"; };
 		C2721D88260989A70078099F /* NSObject+jsonExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+jsonExtention.m"; sourceTree = "<group>"; };
+		C2721D8C2609CA870078099F /* ApiKeyring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ApiKeyring.h; path = FlutterPluginSignalDemo/walletModule/api/ApiKeyring.h; sourceTree = SOURCE_ROOT; };
+		C2721D8D2609CA870078099F /* ApiKeyring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ApiKeyring.m; path = FlutterPluginSignalDemo/walletModule/api/ApiKeyring.m; sourceTree = SOURCE_ROOT; };
+		C2721D8F2609EEC00078099F /* ApiAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiAccount.h; sourceTree = "<group>"; };
+		C2721D902609EEC00078099F /* ApiAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiAccount.m; sourceTree = "<group>"; };
+		C2721D922609EED10078099F /* ApiSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiSetting.h; sourceTree = "<group>"; };
+		C2721D932609EED10078099F /* ApiSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiSetting.m; sourceTree = "<group>"; };
+		C2721D952609EEF40078099F /* ApiTx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiTx.h; sourceTree = "<group>"; };
+		C2721D962609EEF40078099F /* ApiTx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiTx.m; sourceTree = "<group>"; };
+		C2721D982609EF010078099F /* ApiWalletConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiWalletConnect.h; sourceTree = "<group>"; };
+		C2721D992609EF010078099F /* ApiWalletConnect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApiWalletConnect.m; sourceTree = "<group>"; };
 		C28B50D326047C4900245864 /* KeyPairData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyPairData.h; sourceTree = "<group>"; };
 		C28B50D426047C4900245864 /* KeyPairData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyPairData.m; sourceTree = "<group>"; };
 		C28B50DE260834A000245864 /* LocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
@@ -83,8 +98,8 @@
 		C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkParams.m; sourceTree = "<group>"; };
 		C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakScriptMessageDelegate.h; sourceTree = "<group>"; };
 		C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakScriptMessageDelegate.m; sourceTree = "<group>"; };
-		C2AF0D2C2603450800310BA1 /* ChainXSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainXSDK.h; sourceTree = "<group>"; };
-		C2AF0D2D2603450800310BA1 /* ChainXSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainXSDK.m; sourceTree = "<group>"; };
+		C2AF0D2C2603450800310BA1 /* WalletSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WalletSDK.h; sourceTree = "<group>"; };
+		C2AF0D2D2603450800310BA1 /* WalletSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WalletSDK.m; sourceTree = "<group>"; };
 		C2AF0D2F260345A700310BA1 /* PolkawalletApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolkawalletApi.h; sourceTree = "<group>"; };
 		C2AF0D30260345A700310BA1 /* PolkawalletApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolkawalletApi.m; sourceTree = "<group>"; };
 		C2AF0D3226034C8800310BA1 /* KeyringStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyringStorage.h; sourceTree = "<group>"; };
@@ -92,8 +107,8 @@
 		C2E4FC002601E74E00861B5F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C2E4FC012601E74E00861B5F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
 		C2E4FC022601E74E00861B5F /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
-		C2E4FC092601F25500861B5F /* ChainXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainXWebView.m; sourceTree = "<group>"; };
-		C2E4FC0A2601F25500861B5F /* ChainXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainXWebView.h; sourceTree = "<group>"; };
+		C2E4FC092601F25500861B5F /* WalletWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletWebView.m; sourceTree = "<group>"; };
+		C2E4FC0A2601F25500861B5F /* WalletWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletWebView.h; sourceTree = "<group>"; };
 		C2EB095C25EF736200EC965D /* FlutterPluginSignalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlutterPluginSignalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2EB095F25EF736200EC965D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C2EB096025EF736200EC965D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -165,14 +180,14 @@
 		C2AF0CFD2601F72F00310BA1 /* service */ = {
 			isa = PBXGroup;
 			children = (
+				C2AF0D0A2601F81900310BA1 /* ServiceAccount.h */,
+				C2AF0D0B2601F81900310BA1 /* ServiceAccount.m */,
 				C2AF0D012601F7D100310BA1 /* SubstrateService.h */,
 				C2AF0D022601F7D100310BA1 /* SubstrateService.m */,
 				C2AF0D042601F7F600310BA1 /* ServiceKeyring.h */,
 				C2AF0D052601F7F600310BA1 /* ServiceKeyring.m */,
 				C2AF0D072601F81100310BA1 /* ServiceSetting.h */,
 				C2AF0D082601F81100310BA1 /* ServiceSetting.m */,
-				C2AF0D0A2601F81900310BA1 /* ServiceAccount.h */,
-				C2AF0D0B2601F81900310BA1 /* ServiceAccount.m */,
 				C2AF0D0D2601F82100310BA1 /* ServiceTx.h */,
 				C2AF0D0E2601F82100310BA1 /* ServiceTx.m */,
 				C2AF0D102601F82E00310BA1 /* ServiceWalletConnect.h */,
@@ -201,6 +216,16 @@
 				C2AF0D1B26020FAA00310BA1 /* types */,
 				C2AF0D2F260345A700310BA1 /* PolkawalletApi.h */,
 				C2AF0D30260345A700310BA1 /* PolkawalletApi.m */,
+				C2721D8F2609EEC00078099F /* ApiAccount.h */,
+				C2721D902609EEC00078099F /* ApiAccount.m */,
+				C2721D8C2609CA870078099F /* ApiKeyring.h */,
+				C2721D8D2609CA870078099F /* ApiKeyring.m */,
+				C2721D922609EED10078099F /* ApiSetting.h */,
+				C2721D932609EED10078099F /* ApiSetting.m */,
+				C2721D952609EEF40078099F /* ApiTx.h */,
+				C2721D962609EEF40078099F /* ApiTx.m */,
+				C2721D982609EF010078099F /* ApiWalletConnect.h */,
+				C2721D992609EF010078099F /* ApiWalletConnect.m */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -221,8 +246,8 @@
 				C2AF0CFD2601F72F00310BA1 /* service */,
 				C2AF0D162602004600310BA1 /* storage */,
 				C28B50DD2608347B00245864 /* utils */,
-				C2AF0D2C2603450800310BA1 /* ChainXSDK.h */,
-				C2AF0D2D2603450800310BA1 /* ChainXSDK.m */,
+				C2AF0D2C2603450800310BA1 /* WalletSDK.h */,
+				C2AF0D2D2603450800310BA1 /* WalletSDK.m */,
 			);
 			path = walletModule;
 			sourceTree = "<group>";
@@ -255,8 +280,8 @@
 				C2EB096325EF736200EC965D /* SceneDelegate.m */,
 				C2EB096525EF736200EC965D /* ViewController.h */,
 				C2EB096625EF736200EC965D /* ViewController.m */,
-				C2E4FC0A2601F25500861B5F /* ChainXWebView.h */,
-				C2E4FC092601F25500861B5F /* ChainXWebView.m */,
+				C2E4FC0A2601F25500861B5F /* WalletWebView.h */,
+				C2E4FC092601F25500861B5F /* WalletWebView.m */,
 				C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */,
 				C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */,
 				C2EB096825EF736200EC965D /* Main.storyboard */,
@@ -390,20 +415,25 @@
 			files = (
 				C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */,
 				C2EB096725EF736200EC965D /* ViewController.m in Sources */,
-				C2AF0D2E2603450800310BA1 /* ChainXSDK.m in Sources */,
+				C2721D9A2609EF010078099F /* ApiWalletConnect.m in Sources */,
+				C2AF0D2E2603450800310BA1 /* WalletSDK.m in Sources */,
 				C2EB096125EF736200EC965D /* AppDelegate.m in Sources */,
 				C2AF0D092601F81100310BA1 /* ServiceSetting.m in Sources */,
+				C2721D912609EEC00078099F /* ApiAccount.m in Sources */,
 				C2AF0D062601F7F600310BA1 /* ServiceKeyring.m in Sources */,
 				C2AF0D2A2603288A00310BA1 /* WeakScriptMessageDelegate.m in Sources */,
+				C2721D972609EEF40078099F /* ApiTx.m in Sources */,
 				C28B50D526047C4900245864 /* KeyPairData.m in Sources */,
 				C2AF0D0C2601F81900310BA1 /* ServiceAccount.m in Sources */,
 				C2AF0D122601F82E00310BA1 /* ServiceWalletConnect.m in Sources */,
+				C2721D8E2609CA870078099F /* ApiKeyring.m in Sources */,
 				C2AF0D192602006600310BA1 /* Keyring.m in Sources */,
 				C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */,
 				C2EB097225EF736200EC965D /* main.m in Sources */,
+				C2721D942609EED10078099F /* ApiSetting.m in Sources */,
 				C2AF0D032601F7D100310BA1 /* SubstrateService.m in Sources */,
 				C28B50E0260834A000245864 /* LocalStorage.m in Sources */,
-				C2E4FC0B2601F25500861B5F /* ChainXWebView.m in Sources */,
+				C2E4FC0B2601F25500861B5F /* WalletWebView.m in Sources */,
 				C2AF0D1E26020FBD00310BA1 /* NetworkParams.m in Sources */,
 				C2AF0D152601F85200310BA1 /* WebViewRunner.m in Sources */,
 				C2AF0D31260345A700310BA1 /* PolkawalletApi.m in Sources */,

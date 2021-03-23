@@ -10,10 +10,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ChainXSDK : NSObject
+@interface WalletSDK : NSObject
 @property (nonatomic, strong) SubstrateService *service;
 
-- (instancetype)initWithKeyring:(ServiceKeyring *)keyringStorage
+- (instancetype)initWithKeyring:(Keyring *)keyring
                   webViewRunner:(WebViewRunner *)webViewParam
                          jsCode:(NSString *)jsCode;
 
