@@ -1,0 +1,26 @@
+{
+  "name": "flutter_aes_ecb_pkcs5",
+  "version": "0.0.1",
+  "summary": "A new flutter plugin project.",
+  "description": "A new flutter plugin project.",
+  "homepage": "https://github.com/smallbuer/flutter_aes_ecb_pkcs5.git",
+  "license": {
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "smallbuer": "smallbuer@gmail.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "Classes/**/*",
+  "public_header_files": "Classes/**/*.h",
+  "dependencies": {
+    "Flutter": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "8.0"
+  }
+}

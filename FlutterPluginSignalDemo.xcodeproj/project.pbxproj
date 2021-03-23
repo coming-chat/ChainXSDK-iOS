@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49EB000AED914212059AB36F /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */; };
+		C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; };
+		C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D88260989A70078099F /* NSObject+jsonExtention.m */; };
+		C28B50D526047C4900245864 /* KeyPairData.m in Sources */ = {isa = PBXBuildFile; fileRef = C28B50D426047C4900245864 /* KeyPairData.m */; };
+		C28B50E0260834A000245864 /* LocalStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C28B50DF260834A000245864 /* LocalStorage.m */; };
+		C2AF0D032601F7D100310BA1 /* SubstrateService.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D022601F7D100310BA1 /* SubstrateService.m */; };
+		C2AF0D062601F7F600310BA1 /* ServiceKeyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D052601F7F600310BA1 /* ServiceKeyring.m */; };
+		C2AF0D092601F81100310BA1 /* ServiceSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D082601F81100310BA1 /* ServiceSetting.m */; };
+		C2AF0D0C2601F81900310BA1 /* ServiceAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D0B2601F81900310BA1 /* ServiceAccount.m */; };
+		C2AF0D0F2601F82100310BA1 /* ServiceTx.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D0E2601F82100310BA1 /* ServiceTx.m */; };
+		C2AF0D122601F82E00310BA1 /* ServiceWalletConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D112601F82E00310BA1 /* ServiceWalletConnect.m */; };
+		C2AF0D152601F85200310BA1 /* WebViewRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D142601F85200310BA1 /* WebViewRunner.m */; };
+		C2AF0D192602006600310BA1 /* Keyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D182602006600310BA1 /* Keyring.m */; };
+		C2AF0D1E26020FBD00310BA1 /* NetworkParams.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */; };
+		C2AF0D2A2603288A00310BA1 /* WeakScriptMessageDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */; };
+		C2AF0D2E2603450800310BA1 /* ChainXSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D2D2603450800310BA1 /* ChainXSDK.m */; };
+		C2AF0D31260345A700310BA1 /* PolkawalletApi.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D30260345A700310BA1 /* PolkawalletApi.m */; };
+		C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D3326034C8800310BA1 /* KeyringStorage.m */; };
+		C2E4FC032601E74E00861B5F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC002601E74E00861B5F /* index.html */; };
+		C2E4FC042601E74E00861B5F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC012601E74E00861B5F /* test.js */; };
+		C2E4FC052601E74E00861B5F /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC022601E74E00861B5F /* main.js */; };
+		C2E4FC0B2601F25500861B5F /* ChainXWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4FC092601F25500861B5F /* ChainXWebView.m */; };
+		C2EB096125EF736200EC965D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096025EF736200EC965D /* AppDelegate.m */; };
+		C2EB096425EF736200EC965D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096325EF736200EC965D /* SceneDelegate.m */; };
+		C2EB096725EF736200EC965D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096625EF736200EC965D /* ViewController.m */; };
+		C2EB096A25EF736200EC965D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EB096825EF736200EC965D /* Main.storyboard */; };
+		C2EB096C25EF736200EC965D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2EB096B25EF736200EC965D /* Assets.xcassets */; };
+		C2EB096F25EF736200EC965D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2EB096D25EF736200EC965D /* LaunchScreen.storyboard */; };
+		C2EB097225EF736200EC965D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB097125EF736200EC965D /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C2451A1D25F60199007AF229 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2451A1E25F601CA007AF229 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = ../flutter_module/.ios/Flutter/App.framework; sourceTree = "<group>"; };
+		C2721D87260989A70078099F /* NSObject+jsonExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+jsonExtention.h"; sourceTree = "<group>"; };
+		C2721D88260989A70078099F /* NSObject+jsonExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+jsonExtention.m"; sourceTree = "<group>"; };
+		C28B50D326047C4900245864 /* KeyPairData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyPairData.h; sourceTree = "<group>"; };
+		C28B50D426047C4900245864 /* KeyPairData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyPairData.m; sourceTree = "<group>"; };
+		C28B50DE260834A000245864 /* LocalStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalStorage.h; sourceTree = "<group>"; };
+		C28B50DF260834A000245864 /* LocalStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalStorage.m; sourceTree = "<group>"; };
+		C2AF0D012601F7D100310BA1 /* SubstrateService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubstrateService.h; sourceTree = "<group>"; };
+		C2AF0D022601F7D100310BA1 /* SubstrateService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubstrateService.m; sourceTree = "<group>"; };
+		C2AF0D042601F7F600310BA1 /* ServiceKeyring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceKeyring.h; sourceTree = "<group>"; };
+		C2AF0D052601F7F600310BA1 /* ServiceKeyring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceKeyring.m; sourceTree = "<group>"; };
+		C2AF0D072601F81100310BA1 /* ServiceSetting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceSetting.h; sourceTree = "<group>"; };
+		C2AF0D082601F81100310BA1 /* ServiceSetting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceSetting.m; sourceTree = "<group>"; };
+		C2AF0D0A2601F81900310BA1 /* ServiceAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceAccount.h; sourceTree = "<group>"; };
+		C2AF0D0B2601F81900310BA1 /* ServiceAccount.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceAccount.m; sourceTree = "<group>"; };
+		C2AF0D0D2601F82100310BA1 /* ServiceTx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceTx.h; sourceTree = "<group>"; };
+		C2AF0D0E2601F82100310BA1 /* ServiceTx.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceTx.m; sourceTree = "<group>"; };
+		C2AF0D102601F82E00310BA1 /* ServiceWalletConnect.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceWalletConnect.h; sourceTree = "<group>"; };
+		C2AF0D112601F82E00310BA1 /* ServiceWalletConnect.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceWalletConnect.m; sourceTree = "<group>"; };
+		C2AF0D132601F85200310BA1 /* WebViewRunner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewRunner.h; sourceTree = "<group>"; };
+		C2AF0D142601F85200310BA1 /* WebViewRunner.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewRunner.m; sourceTree = "<group>"; };
+		C2AF0D172602006600310BA1 /* Keyring.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Keyring.h; sourceTree = "<group>"; };
+		C2AF0D182602006600310BA1 /* Keyring.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Keyring.m; sourceTree = "<group>"; };
+		C2AF0D1C26020FBD00310BA1 /* NetworkParams.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkParams.h; sourceTree = "<group>"; };
+		C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkParams.m; sourceTree = "<group>"; };
+		C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeakScriptMessageDelegate.h; sourceTree = "<group>"; };
+		C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeakScriptMessageDelegate.m; sourceTree = "<group>"; };
+		C2AF0D2C2603450800310BA1 /* ChainXSDK.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChainXSDK.h; sourceTree = "<group>"; };
+		C2AF0D2D2603450800310BA1 /* ChainXSDK.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChainXSDK.m; sourceTree = "<group>"; };
+		C2AF0D2F260345A700310BA1 /* PolkawalletApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolkawalletApi.h; sourceTree = "<group>"; };
+		C2AF0D30260345A700310BA1 /* PolkawalletApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolkawalletApi.m; sourceTree = "<group>"; };
+		C2AF0D3226034C8800310BA1 /* KeyringStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyringStorage.h; sourceTree = "<group>"; };
+		C2AF0D3326034C8800310BA1 /* KeyringStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyringStorage.m; sourceTree = "<group>"; };
+		C2E4FC002601E74E00861B5F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		C2E4FC012601E74E00861B5F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
+		C2E4FC022601E74E00861B5F /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		C2E4FC092601F25500861B5F /* ChainXWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChainXWebView.m; sourceTree = "<group>"; };
+		C2E4FC0A2601F25500861B5F /* ChainXWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChainXWebView.h; sourceTree = "<group>"; };
+		C2EB095C25EF736200EC965D /* FlutterPluginSignalDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlutterPluginSignalDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C2EB095F25EF736200EC965D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C2EB096025EF736200EC965D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C2EB096225EF736200EC965D /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		C2EB096325EF736200EC965D /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		C2EB096525EF736200EC965D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C2EB096625EF736200EC965D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C2EB096925EF736200EC965D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C2EB096B25EF736200EC965D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C2EB096E25EF736200EC965D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C2EB097025EF736200EC965D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2EB097125EF736200EC965D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FB691A4F859A4648AC20098E /* Pods-FlutterPluginSignalDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterPluginSignalDemo.release.xcconfig"; path = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FF0685E1E2D5B14DE54F02C9 /* Pods-FlutterPluginSignalDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterPluginSignalDemo.debug.xcconfig"; path = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C2EB095925EF736200EC965D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				49EB000AED914212059AB36F /* Pods_FlutterPluginSignalDemo.framework in Frameworks */,
+				C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1594E53975890C45AFF0218A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF0685E1E2D5B14DE54F02C9 /* Pods-FlutterPluginSignalDemo.debug.xcconfig */,
+				FB691A4F859A4648AC20098E /* Pods-FlutterPluginSignalDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AABA43718AD86E608C6CE66E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C2451A1E25F601CA007AF229 /* App.framework */,
+				C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */,
+				379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C28B50D226047B9800245864 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C28B50D326047C4900245864 /* KeyPairData.h */,
+				C28B50D426047C4900245864 /* KeyPairData.m */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		C28B50DD2608347B00245864 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				C28B50DE260834A000245864 /* LocalStorage.h */,
+				C28B50DF260834A000245864 /* LocalStorage.m */,
+				C2721D87260989A70078099F /* NSObject+jsonExtention.h */,
+				C2721D88260989A70078099F /* NSObject+jsonExtention.m */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		C2AF0CFD2601F72F00310BA1 /* service */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF0D012601F7D100310BA1 /* SubstrateService.h */,
+				C2AF0D022601F7D100310BA1 /* SubstrateService.m */,
+				C2AF0D042601F7F600310BA1 /* ServiceKeyring.h */,
+				C2AF0D052601F7F600310BA1 /* ServiceKeyring.m */,
+				C2AF0D072601F81100310BA1 /* ServiceSetting.h */,
+				C2AF0D082601F81100310BA1 /* ServiceSetting.m */,
+				C2AF0D0A2601F81900310BA1 /* ServiceAccount.h */,
+				C2AF0D0B2601F81900310BA1 /* ServiceAccount.m */,
+				C2AF0D0D2601F82100310BA1 /* ServiceTx.h */,
+				C2AF0D0E2601F82100310BA1 /* ServiceTx.m */,
+				C2AF0D102601F82E00310BA1 /* ServiceWalletConnect.h */,
+				C2AF0D112601F82E00310BA1 /* ServiceWalletConnect.m */,
+				C2AF0D132601F85200310BA1 /* WebViewRunner.h */,
+				C2AF0D142601F85200310BA1 /* WebViewRunner.m */,
+			);
+			path = service;
+			sourceTree = "<group>";
+		};
+		C2AF0D162602004600310BA1 /* storage */ = {
+			isa = PBXGroup;
+			children = (
+				C28B50D226047B9800245864 /* types */,
+				C2AF0D172602006600310BA1 /* Keyring.h */,
+				C2AF0D182602006600310BA1 /* Keyring.m */,
+				C2AF0D3226034C8800310BA1 /* KeyringStorage.h */,
+				C2AF0D3326034C8800310BA1 /* KeyringStorage.m */,
+			);
+			path = storage;
+			sourceTree = "<group>";
+		};
+		C2AF0D1A26020F9C00310BA1 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF0D1B26020FAA00310BA1 /* types */,
+				C2AF0D2F260345A700310BA1 /* PolkawalletApi.h */,
+				C2AF0D30260345A700310BA1 /* PolkawalletApi.m */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		C2AF0D1B26020FAA00310BA1 /* types */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF0D1C26020FBD00310BA1 /* NetworkParams.h */,
+				C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */,
+			);
+			path = types;
+			sourceTree = "<group>";
+		};
+		C2AF0D2B260344DB00310BA1 /* walletModule */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF0D1A26020F9C00310BA1 /* api */,
+				C2AF0CFD2601F72F00310BA1 /* service */,
+				C2AF0D162602004600310BA1 /* storage */,
+				C28B50DD2608347B00245864 /* utils */,
+				C2AF0D2C2603450800310BA1 /* ChainXSDK.h */,
+				C2AF0D2D2603450800310BA1 /* ChainXSDK.m */,
+			);
+			path = walletModule;
+			sourceTree = "<group>";
+		};
+		C2EB095325EF736200EC965D = {
+			isa = PBXGroup;
+			children = (
+				C2EB095E25EF736200EC965D /* FlutterPluginSignalDemo */,
+				C2EB095D25EF736200EC965D /* Products */,
+				1594E53975890C45AFF0218A /* Pods */,
+				AABA43718AD86E608C6CE66E /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C2EB095D25EF736200EC965D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C2EB095C25EF736200EC965D /* FlutterPluginSignalDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C2EB095E25EF736200EC965D /* FlutterPluginSignalDemo */ = {
+			isa = PBXGroup;
+			children = (
+				C2AF0D2B260344DB00310BA1 /* walletModule */,
+				C2EB095F25EF736200EC965D /* AppDelegate.h */,
+				C2EB096025EF736200EC965D /* AppDelegate.m */,
+				C2EB096225EF736200EC965D /* SceneDelegate.h */,
+				C2EB096325EF736200EC965D /* SceneDelegate.m */,
+				C2EB096525EF736200EC965D /* ViewController.h */,
+				C2EB096625EF736200EC965D /* ViewController.m */,
+				C2E4FC0A2601F25500861B5F /* ChainXWebView.h */,
+				C2E4FC092601F25500861B5F /* ChainXWebView.m */,
+				C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */,
+				C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */,
+				C2EB096825EF736200EC965D /* Main.storyboard */,
+				C2EB096B25EF736200EC965D /* Assets.xcassets */,
+				C2EB096D25EF736200EC965D /* LaunchScreen.storyboard */,
+				C2EB097025EF736200EC965D /* Info.plist */,
+				C2EB097125EF736200EC965D /* main.m */,
+				C2E4FC002601E74E00861B5F /* index.html */,
+				C2E4FC022601E74E00861B5F /* main.js */,
+				C2E4FC012601E74E00861B5F /* test.js */,
+			);
+			path = FlutterPluginSignalDemo;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C2EB095B25EF736200EC965D /* FlutterPluginSignalDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C2EB097525EF736200EC965D /* Build configuration list for PBXNativeTarget "FlutterPluginSignalDemo" */;
+			buildPhases = (
+				D3804C2335C639626EE02AAE /* [CP] Check Pods Manifest.lock */,
+				C2EB095825EF736200EC965D /* Sources */,
+				C2EB095925EF736200EC965D /* Frameworks */,
+				C2EB095A25EF736200EC965D /* Resources */,
+				C2451A1D25F60199007AF229 /* Embed Frameworks */,
+				C9A791B5541CF57103F5CB15 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlutterPluginSignalDemo;
+			productName = FlutterPluginSignalDemo;
+			productReference = C2EB095C25EF736200EC965D /* FlutterPluginSignalDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C2EB095425EF736200EC965D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					C2EB095B25EF736200EC965D = {
+						CreatedOnToolsVersion = 12.4;
+					};
+				};
+			};
+			buildConfigurationList = C2EB095725EF736200EC965D /* Build configuration list for PBXProject "FlutterPluginSignalDemo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C2EB095325EF736200EC965D;
+			productRefGroup = C2EB095D25EF736200EC965D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C2EB095B25EF736200EC965D /* FlutterPluginSignalDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C2EB095A25EF736200EC965D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2E4FC042601E74E00861B5F /* test.js in Resources */,
+				C2EB096F25EF736200EC965D /* LaunchScreen.storyboard in Resources */,
+				C2E4FC032601E74E00861B5F /* index.html in Resources */,
+				C2E4FC052601E74E00861B5F /* main.js in Resources */,
+				C2EB096C25EF736200EC965D /* Assets.xcassets in Resources */,
+				C2EB096A25EF736200EC965D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9A791B5541CF57103F5CB15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D3804C2335C639626EE02AAE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FlutterPluginSignalDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C2EB095825EF736200EC965D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */,
+				C2EB096725EF736200EC965D /* ViewController.m in Sources */,
+				C2AF0D2E2603450800310BA1 /* ChainXSDK.m in Sources */,
+				C2EB096125EF736200EC965D /* AppDelegate.m in Sources */,
+				C2AF0D092601F81100310BA1 /* ServiceSetting.m in Sources */,
+				C2AF0D062601F7F600310BA1 /* ServiceKeyring.m in Sources */,
+				C2AF0D2A2603288A00310BA1 /* WeakScriptMessageDelegate.m in Sources */,
+				C28B50D526047C4900245864 /* KeyPairData.m in Sources */,
+				C2AF0D0C2601F81900310BA1 /* ServiceAccount.m in Sources */,
+				C2AF0D122601F82E00310BA1 /* ServiceWalletConnect.m in Sources */,
+				C2AF0D192602006600310BA1 /* Keyring.m in Sources */,
+				C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */,
+				C2EB097225EF736200EC965D /* main.m in Sources */,
+				C2AF0D032601F7D100310BA1 /* SubstrateService.m in Sources */,
+				C28B50E0260834A000245864 /* LocalStorage.m in Sources */,
+				C2E4FC0B2601F25500861B5F /* ChainXWebView.m in Sources */,
+				C2AF0D1E26020FBD00310BA1 /* NetworkParams.m in Sources */,
+				C2AF0D152601F85200310BA1 /* WebViewRunner.m in Sources */,
+				C2AF0D31260345A700310BA1 /* PolkawalletApi.m in Sources */,
+				C2EB096425EF736200EC965D /* SceneDelegate.m in Sources */,
+				C2AF0D0F2601F82100310BA1 /* ServiceTx.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		C2EB096825EF736200EC965D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2EB096925EF736200EC965D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C2EB096D25EF736200EC965D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2EB096E25EF736200EC965D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C2EB097325EF736200EC965D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C2EB097425EF736200EC965D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C2EB097625EF736200EC965D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF0685E1E2D5B14DE54F02C9 /* Pods-FlutterPluginSignalDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				INFOPLIST_FILE = FlutterPluginSignalDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangyuqiiOS.jsq.FlutterPluginSignalDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C2EB097725EF736200EC965D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB691A4F859A4648AC20098E /* Pods-FlutterPluginSignalDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
+				INFOPLIST_FILE = FlutterPluginSignalDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.yangyuqiiOS.jsq.FlutterPluginSignalDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C2EB095725EF736200EC965D /* Build configuration list for PBXProject "FlutterPluginSignalDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EB097325EF736200EC965D /* Debug */,
+				C2EB097425EF736200EC965D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C2EB097525EF736200EC965D /* Build configuration list for PBXNativeTarget "FlutterPluginSignalDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C2EB097625EF736200EC965D /* Debug */,
+				C2EB097725EF736200EC965D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C2EB095425EF736200EC965D /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_FlutterPluginSignalDemo {
+  umbrella header "Pods-FlutterPluginSignalDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}
