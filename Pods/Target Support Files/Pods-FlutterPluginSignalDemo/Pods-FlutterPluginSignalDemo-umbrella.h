@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_FlutterPluginSignalDemoVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_FlutterPluginSignalDemoVersionString[];
+FOUNDATION_EXPORT double Pods_commonVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_commonVersionString[];
 

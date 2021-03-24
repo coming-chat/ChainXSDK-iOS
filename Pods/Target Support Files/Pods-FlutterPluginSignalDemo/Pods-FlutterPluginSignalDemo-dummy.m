@@ -1,5 +1,5 @@
 #import <Foundation/Foundation.h>
-@interface PodsDummy_Pods_FlutterPluginSignalDemo : NSObject
+@interface PodsDummy_Pods_common : NSObject
 @end
-@implementation PodsDummy_Pods_FlutterPluginSignalDemo
+@implementation PodsDummy_Pods_common
 @end
