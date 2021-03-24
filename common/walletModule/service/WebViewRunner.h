@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)evalJavascriptWithCode:(NSString *)code successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
-- (NSString *)connectNode:(NSArray<NetworkParams *> *)nodes successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
+- (void)connectNode:(NSArray<NetworkParams *> *)nodes successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler;
 
 - (void)subscribeMessageWithCode:(NSString *)code
                          channel:(NSString *)channel

@@ -10,6 +10,8 @@
 		49EB000AED914212059AB36F /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */; };
 		C233EDB0260ADD9F005243BA /* BalanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDAF260ADD9F005243BA /* BalanceData.m */; };
 		C233EDB3260AE0B4005243BA /* ApiKeyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDB1260AE0B4005243BA /* ApiKeyring.m */; };
+		C233EDBA260AE588005243BA /* NetworkStateData.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDB9260AE588005243BA /* NetworkStateData.m */; };
+		C233EDC7260B4348005243BA /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDC3260B4348005243BA /* AESCrypt.m */; };
 		C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; };
 		C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D88260989A70078099F /* NSObject+jsonExtention.m */; };
@@ -65,6 +67,10 @@
 		C233EDAF260ADD9F005243BA /* BalanceData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BalanceData.m; sourceTree = "<group>"; };
 		C233EDB1260AE0B4005243BA /* ApiKeyring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiKeyring.m; sourceTree = "<group>"; };
 		C233EDB2260AE0B4005243BA /* ApiKeyring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKeyring.h; sourceTree = "<group>"; };
+		C233EDB8260AE588005243BA /* NetworkStateData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkStateData.h; sourceTree = "<group>"; };
+		C233EDB9260AE588005243BA /* NetworkStateData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkStateData.m; sourceTree = "<group>"; };
+		C233EDC2260B4348005243BA /* AESCrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AESCrypt.h; sourceTree = "<group>"; };
+		C233EDC3260B4348005243BA /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
 		C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2451A1E25F601CA007AF229 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = ../flutter_module/.ios/Flutter/App.framework; sourceTree = "<group>"; };
 		C2721D87260989A70078099F /* NSObject+jsonExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+jsonExtention.h"; sourceTree = "<group>"; };
@@ -160,6 +166,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C233EDBB260B4326005243BA /* AesEcbPkcs5 */ = {
+			isa = PBXGroup;
+			children = (
+				C233EDC2260B4348005243BA /* AESCrypt.h */,
+				C233EDC3260B4348005243BA /* AESCrypt.m */,
+			);
+			path = AesEcbPkcs5;
+			sourceTree = "<group>";
+		};
 		C28B50D226047B9800245864 /* types */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +187,7 @@
 		C28B50DD2608347B00245864 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				C233EDBB260B4326005243BA /* AesEcbPkcs5 */,
 				C28B50DE260834A000245864 /* LocalStorage.h */,
 				C28B50DF260834A000245864 /* LocalStorage.m */,
 				C2721D87260989A70078099F /* NSObject+jsonExtention.h */,
@@ -236,10 +252,12 @@
 		C2AF0D1B26020FAA00310BA1 /* types */ = {
 			isa = PBXGroup;
 			children = (
-				C2AF0D1C26020FBD00310BA1 /* NetworkParams.h */,
-				C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */,
 				C233EDAE260ADD9F005243BA /* BalanceData.h */,
 				C233EDAF260ADD9F005243BA /* BalanceData.m */,
+				C2AF0D1C26020FBD00310BA1 /* NetworkParams.h */,
+				C2AF0D1D26020FBD00310BA1 /* NetworkParams.m */,
+				C233EDB8260AE588005243BA /* NetworkStateData.h */,
+				C233EDB9260AE588005243BA /* NetworkStateData.m */,
 			);
 			path = types;
 			sourceTree = "<group>";
@@ -420,6 +438,7 @@
 			files = (
 				C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */,
 				C2EB096725EF736200EC965D /* ViewController.m in Sources */,
+				C233EDBA260AE588005243BA /* NetworkStateData.m in Sources */,
 				C233EDB3260AE0B4005243BA /* ApiKeyring.m in Sources */,
 				C2721D9A2609EF010078099F /* ApiWalletConnect.m in Sources */,
 				C2AF0D2E2603450800310BA1 /* WalletSDK.m in Sources */,
@@ -432,6 +451,7 @@
 				C233EDB0260ADD9F005243BA /* BalanceData.m in Sources */,
 				C28B50D526047C4900245864 /* KeyPairData.m in Sources */,
 				C2AF0D0C2601F81900310BA1 /* ServiceAccount.m in Sources */,
+				C233EDC7260B4348005243BA /* AESCrypt.m in Sources */,
 				C2AF0D122601F82E00310BA1 /* ServiceWalletConnect.m in Sources */,
 				C2AF0D192602006600310BA1 /* Keyring.m in Sources */,
 				C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */,

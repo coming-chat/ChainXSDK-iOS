@@ -9,6 +9,7 @@
 //#import "WalletWebView.h"
 #import "WebViewRunner.h"
 #import "Keyring.h"
+#import "Keyring.h"
 
 @interface ViewController ()<WKNavigationDelegate>
 @property (nonatomic, strong) WebViewRunner *webView;
@@ -28,8 +29,7 @@
     [button addTarget:self action:@selector(jumpToFlutter) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
     
-//    Keyring *keyring = [[Keyring alloc] init];
-    
+    [[[KeyringPrivateStore alloc] init] encryptSeedAndSaveWithPubKey:@"" seed:@"wing know chapter eight shed lens mandate lake twenty useless bless glory" seedType:@"" password:@"a123456"];
 }
 
 - (void)jumpToFlutter

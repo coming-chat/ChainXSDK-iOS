@@ -8,6 +8,8 @@
 #import "Keyring.h"
 #import "KeyringStorage.h"
 #import "LocalStorage.h"
+#import "NSObject+jsonExtention.h"
+#import "AESCrypt.h"
 
 @interface Keyring ()
 
@@ -215,6 +217,143 @@
 - (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data
 {
     self.pubKeyAddressMap = data.mutableCopy;
+}
+
+- (void)updateIconsMapWithData:(NSDictionary<NSString *, NSString *> *)data
+{
+    [self.iconsMap addEntriesFromDictionary:data];
+}
+
+- (void)updateIndicesMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data
+{
+    self.indicesMap = data.mutableCopy;
+}
+
+- (void)addAccountWithAcc:(NSDictionary *)acc
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].keyPairs.mutableCopy;
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = array[i];
+        if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
+            dict = acc;
+            break;
+        }
+    }
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"keyPairs"];
+    [self setCurrentPubKey:acc[@"pubKey"]];
+}
+
+- (void)addContactWithAcc:(NSDictionary *)acc
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
+    [array addObject:acc];
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"contacts"];
+    if ([acc.allKeys containsObject:@"observation"]) {
+        [self setCurrentPubKey:acc[@"pubKey"]];
+    }
+}
+
+- (void)updateAccountWithAcc:(NSDictionary *)acc
+                  isExternal:(BOOL)isExternal
+{
+    if (isExternal) {
+        [self updateContactWithAcc:acc];
+    }else{
+        [self updateKeyPairWithAcc:acc];
+    }
+}
+
+- (void)updateKeyPairWithAcc:(NSDictionary *)acc
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].keyPairs.mutableCopy;
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = array[i];
+        if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
+            dict = acc;
+            break;
+        }
+    }
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"keyPairs"];
+}
+
+- (void)updateContactWithAcc:(NSDictionary *)acc
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = array[i];
+        if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
+            dict = acc;
+            break;
+        }
+    }
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"contacts"];
+}
+
+- (void)deleteAccountWithPubKey:(NSString *)pubKey
+{
+    [self deleteKeyPairWithPubKey:pubKey];
+    
+    NSMutableDictionary *dict = [KeyringStorage shareInstance].encryptedMnemonics.mutableCopy;
+    if ([dict.allKeys containsObject:pubKey]) {
+        [dict removeObjectForKey:pubKey];
+    }
+    [[KeyringStorage shareInstance].storage setValue:dict.copy forKey:@"encryptedMnemonics"];
+    NSMutableDictionary *dict2 = [KeyringStorage shareInstance].encryptedRawSeeds.mutableCopy;
+    if ([dict2.allKeys containsObject:pubKey]) {
+        [dict2 removeObjectForKey:pubKey];
+    }
+    [[KeyringStorage shareInstance].storage setValue:dict2.copy forKey:@"encryptedRawSeeds"];
+}
+
+- (void)deleteKeyPairWithPubKey:(NSString *)pubKey
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = array[i];
+        if ([dict[@"pubKey"] isEqualToString:pubKey]) {
+            [array removeObject:dict];
+            break;
+        }
+    }
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"contacts"];
+    
+    if (array.count > 0) {
+        [self setCurrentPubKey:array[0][@"pubKey"]];
+    }else if (self.externals.count > 0){
+        [self setCurrentPubKey:self.externals[0][@"pubKey"]];
+    }else{
+        [self setCurrentPubKey:@""];
+    }
+}
+
+- (void)deleteContactWithPubKey:(NSString *)pubKey
+{
+    NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
+    for (int i = 0; i < array.count; i++) {
+        NSDictionary *dict = array[i];
+        if ([dict[@"pubKey"] isEqualToString:pubKey]) {
+            [array removeObject:dict];
+            break;
+        }
+    }
+    [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"contacts"];
+}
+
+- (void)encryptSeedAndSaveWithPubKey:(NSString *)pubKey
+                                seed:(NSString *)seed
+                            seedType:(NSString *)seedType
+                            password:(NSString *)password
+{
+    NSString *key = passwordToEncryptKey(password);
+    NSString *encrypted = [AESCrypt encrypt:seed password:password];
+    //61313233343536000000000000000000
+    //61313233343536000000000000000000
+    //wing know chapter eight shed lens mandate lake twenty useless bless glory
+    //wing know chapter eight shed lens mandate lake twenty useless bless glory
+    //F06D8AC44B7F7ED643F84959421F3AAFFF8FC607A7552D748187C561CAEC0E94A73A9EC4FD0DB2A981EC860DD8B65E820BF4A33D364D8F86AA5E1A96FF87E4149B7FF1C6E7632C35511B770A8706B941
+    //gvcJCMlyjYixpePckfCbBgUJsuaav+cMEjrsaAHOC+g1Jo1jQhpqHSIRsi1C8yvSW1wiDvAEHV/dnavM/Q9QCBo4keNP4qhImd0fnUlrtQ8=
+    NSLog(@"%@", encrypted);
+    
 }
 
 - (void)migrateSeeds

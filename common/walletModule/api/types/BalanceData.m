@@ -6,8 +6,13 @@
 //
 
 #import "BalanceData.h"
+#import <MTLJSONAdapter.h>
 
 @implementation BalanceData
+
++ (NSValueTransformer *)lockedBreakdownJSONTransformer {
+    return [MTLJSONAdapter arrayTransformerWithModelClass:BalanceBreakdownData.class];
+}
 
 @end
 

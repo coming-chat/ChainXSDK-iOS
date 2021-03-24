@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BalanceData.h"
 @class PolkawalletApi;
 @class ServiceAccount;
 

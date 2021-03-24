@@ -63,14 +63,26 @@
     [self.web evaluateJavaScript:script completionHandler:nil];
 }
 
-- (NSString *)connectNode:(NSArray<NetworkParams *> *)nodes
-           successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+- (void)connectNode:(NSArray<NetworkParams *> *)nodes
+     successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler
 {
-    if (nodes.count < 1) {
-        return @"";
+    NSMutableArray *endpoints = [[NSMutableArray alloc] init];
+    for (NetworkParams *data in nodes) {
+        [endpoints addObject:data.endpoint];
     }
-    [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", jsonEncodeWithValue(@[nodes.firstObject.endpoint])] successHandler:successHandler];
-    return nodes.firstObject.endpoint;
+    [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", jsonEncodeWithValue(endpoints)] successHandler:^(id  _Nullable data) {
+        if (data) {
+            for (NetworkParams *data in nodes) {
+                if ([data.endpoint isEqualToString:(NSString *)data]) {
+                    successHandler(data);
+                    return;;
+                }
+            }
+        }else{
+            successHandler(nil);
+        }
+    }];
+    
 }
 
 - (void)subscribeMessageWithCode:(NSString *)code

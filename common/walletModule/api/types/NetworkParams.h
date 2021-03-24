@@ -6,10 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MTLModel.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NetworkParams : NSObject
+@interface NetworkParams : MTLModel
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *endpoint;
 @property (nonatomic, assign) NSInteger ss58;

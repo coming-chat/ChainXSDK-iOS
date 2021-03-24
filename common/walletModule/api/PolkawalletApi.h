@@ -14,7 +14,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PolkawalletApi : NSObject
-@property (nonatomic, strong) NetworkParams *connectedNode;
+@property (nonatomic ,strong) SubstrateService *service;
+
+@property (nonatomic, strong, nullable) NetworkParams *connectedNode;
 @property (nonatomic, strong) ApiAccount *account;
 @property (nonatomic, strong) ApiKeyring *keyring;
 @property (nonatomic, strong) ApiSetting *setting;

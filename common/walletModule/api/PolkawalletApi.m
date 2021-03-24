@@ -8,7 +8,6 @@
 #import "PolkawalletApi.h"
 
 @interface PolkawalletApi ()
-@property (nonatomic ,strong) SubstrateService *service;
 
 @end
 
@@ -33,6 +32,19 @@
         self.tx.service = self.service.tx;
     }
     return self;
+}
+
+- (void)connectNodeWithKeyringStorage:(Keyring *)keyringStorage
+                                nodes:(NSMutableArray<NetworkParams *> *)nodes
+                       successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler
+{
+    self.connectedNode = nil;
+    [self.service.webView connectNode:nodes successHandler:^(NetworkParams * _Nonnull data) {
+        if (data) {
+            self.connectedNode = data;
+        }
+//        self.keyring
+    }];
 }
 
 @end

@@ -32,9 +32,28 @@
 }
 
 - (void)queryBalanceWithAddress:(NSString *)address
-                 successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+                 successHandler:(void (^ _Nullable)(BalanceData *data))successHandler
 {
-    
+    [self.service queryBalanceWithAddress:address successHandler:^(id  _Nullable data) {
+        successHandler([BalanceData modelWithDictionary:data error:nil]);
+    }];
+}
+
+- (void)subscribeBalanceWithAddress:(NSString *)address
+                           onUpdate:(void (^ _Nullable)(BalanceData *data))onUpdate
+                     successHandler:(void (^ _Nullable)(NSString *msgChannel))successHandler
+{
+    NSString *msgChannel = @"Balance";
+    NSString *code = [NSString stringWithFormat:@"account.getBalance(api, \"%@\", \"%@\")", address, msgChannel];
+    [self.apiRoot.service.webView subscribeMessageWithCode:code channel:msgChannel callback:^(id  _Nullable data) {
+        onUpdate([BalanceData modelWithDictionary:data error:nil]);
+    } successHandler:successHandler];
+}
+
+- (void)unsubscribeBalance
+{
+    NSString *msgChannel = @"Balance";
+//    self.apiRoot 
 }
 
 @end

@@ -15,6 +15,8 @@ NSString *jsonEncodeWithValue(id value);
 
 id jsonDecodeWithString(NSString *string);
 
+NSString *passwordToEncryptKey(NSString *password);
+
 @end
 
 NS_ASSUME_NONNULL_END

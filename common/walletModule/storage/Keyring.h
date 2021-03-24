@@ -41,6 +41,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
 
+
+
+- (void)encryptSeedAndSaveWithPubKey:(NSString *)pubKey
+                                seed:(NSString *)seed
+                            seedType:(NSString *)seedType
+                            password:(NSString *)password;
+
+
 @end
 
 NS_ASSUME_NONNULL_END
