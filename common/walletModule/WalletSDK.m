@@ -10,17 +10,21 @@
 @implementation WalletSDK
 
 - (instancetype)initWithKeyring:(Keyring *)keyring
-                  webViewRunner:(WebViewRunner *)webViewParam
-                         jsCode:(NSString *)jsCode
+                  webViewRunner:(nullable WebViewRunner *)webViewParam
+                         jsCode:(nullable NSString *)jsCode
 {
     if (self = [super init]) {
         self.service = [[SubstrateService alloc] initWithKeyring:keyring
                                                    webViewRunner:webViewParam
                                                            block:^{
-            [self.service.keyring injectKeyPairsToWebViewWithKeyring:keyring successHandler:nil];
+            [self.service.keyring injectKeyPairsToWebViewWithKeyring:keyring successHandler:^(id  _Nullable data) {
+                NSLog(@"webView准备完成----%@", data);
+            }];
             
+            [self.api.keyring updatePubKeyIconsMapWithKeyring:keyring pubKey:nil];
         }
                                                           jsCode:jsCode];
+        self.api = [[PolkawalletApi alloc] initWithService:self.service];
     }
     return self;
 }

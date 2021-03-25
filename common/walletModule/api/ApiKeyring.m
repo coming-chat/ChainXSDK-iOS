@@ -28,7 +28,7 @@
         if (!data) {
             successHandler(nil);
         }else{
-            if ([((NSDictionary *)data).allKeys containsObject:@"error"]) {
+            if ([((NSMutableDictionary *)data).allKeys containsObject:@"error"]) {
                 if (data[@"error"]) {
                     failureHandler(data[@"error"]);
                     return;
@@ -39,13 +39,54 @@
     }];
 }
 
+// Add account to local storage.
+- (NSMutableDictionary *)addAccountWithKeyring:(Keyring *)keyring
+                                keyType:(NSString *)keyType
+                                    acc:(NSMutableDictionary *)acc
+                               password:(NSString *)password
+{
+    // save seed and remove it before add account
+    if ([keyType isEqualToString:@"mnemonic"] || [keyType isEqualToString:@"rawSeed"]) {
+        if ([acc.allKeys containsObject:keyType]) {
+            if (acc[keyType]) {
+                [keyring.store encryptSeedAndSaveWithPubKey:acc[@"pubKey"] seed:acc[keyType] seedType:keyType password:password];
+                [acc setValue:nil forKey:keyType];
+            }
+        }
+    }
+    // save keystore to storage
+    [keyring.store addAccountWithAcc:acc];
+    
+    [self updatePubKeyIconsMapWithKeyring:keyring pubKey:acc[@"pubKey"]];
+    [self updatePubKeyAddressMapWithKeyring:keyring];
+    [self updateIndicesMapWithKeyring:keyring addresses:@[acc[@"address"]].mutableCopy];
+    
+    return acc;
+}
+
+- (void)addContactWithKeyring:(Keyring *)keyring
+                          acc:(NSMutableDictionary *)acc
+               successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
+{
+    [self.service.serviceRoot.account decodeAddressWithAddresses:@[acc[@"address"]].mutableCopy successHandler:^(id  _Nullable data) {
+        [acc setValue:((NSMutableDictionary *)data).allKeys.firstObject forKey:@"pubKey"];
+        [keyring.store addContactWithAcc:acc];
+        
+        [self updatePubKeyAddressMapWithKeyring:keyring];
+        [self updatePubKeyIconsMapWithKeyring:keyring pubKey:acc[@"pubKey"]];
+        [self updateIndicesMapWithKeyring:keyring addresses:@[acc[@"address"]].mutableCopy];
+        
+        successHandler(acc);
+    }];
+}
+
 - (void)updatePubKeyAddressMapWithKeyring:(Keyring *)keyring
 {
     NSMutableArray *ls = keyring.store.list;
     [ls addObjectsFromArray:keyring.store.contacts];
     [self.service getPubKeyAddressMapWithKeyPairs:ls ss58List:keyring.store.ss58List.mutableCopy successHandler:^(id  _Nullable data) {
         if (data) {
-            if ([((NSDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%d", keyring.store.ss58]]) {
+            if ([((NSMutableDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%d", keyring.store.ss58]]) {
                 [keyring.store updatePubKeyAddressMapWithData:data];
             }
         }
@@ -53,23 +94,23 @@
 }
 
 - (void)updatePubKeyIconsMapWithKeyring:(Keyring *)keyring
-                                 pubKey:(NSString *)pubKey
+                                 pubKey:(nullable NSString *)pubKey
 {
     NSMutableArray *ls = [[NSMutableArray alloc] init];
     if (pubKey.length != 0) {
         [ls addObject:pubKey];
     }else{
-        for (NSDictionary *dict in keyring.keyPairs) {
+        for (NSMutableDictionary *dict in keyring.keyPairs) {
             [ls addObject:dict[@"pubKey"]];
         }
-        for (NSDictionary *dict in keyring.contacts) {
+        for (NSMutableDictionary *dict in keyring.contacts) {
             [ls addObject:dict[@"pubKey"]];
         }
     }
     if (ls.count == 0) return;
     [self.service getPubKeyIconsMapWithPubKeys:ls successHandler:^(id  _Nullable data) {
         if (data) {
-            NSDictionary *dict = [[NSDictionary alloc] init];
+            NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
             for (NSArray *array in data) {
                 [dict setValue:array[1] forKey:array[0]];
             }
@@ -96,8 +137,8 @@
     // get account indices from webView.
     [self.apiRoot.account queryIndexInfoWithAddresses:ls successHandler:^(NSMutableArray * _Nonnull list) {
         if (list) {
-            NSDictionary *data = @{};
-            for (NSDictionary *dict in list) {
+            NSMutableDictionary *data = @{}.mutableCopy;
+            for (NSMutableDictionary *dict in list) {
                 [data setValue:dict forKey:dict[@"accountId"]];
             }
             [keyring.store updateIndicesMapWithData:data];
@@ -109,7 +150,7 @@
 - (SeedBackupData *)getDecryptedSeedWithKeyring:(Keyring *)keyring
                            password:(NSString *)password
 {
-    NSDictionary<NSString *, id> *data = [keyring.store getDecryptedSeedWithPubKey:keyring.current.pubKey password:password];
+    NSMutableDictionary<NSString *, id> *data = [keyring.store getDecryptedSeedWithPubKey:keyring.current.pubKey password:password];
     if (!data) return nil;
     if (![data.allKeys containsObject:@"seed"]) {
         [data setValue:@"wrong password" forKey:@"error"];
@@ -154,10 +195,10 @@
         [keyring.store updateEncryptedSeedWithPubKey:acc.pubKey passOld:passOld passNew:passNew];
         
         // update json meta data
-        [self.service updateKeyPairMetaDataWithAcc:(NSDictionary *)data name:acc.name];
+        [self.service updateKeyPairMetaDataWithAcc:(NSMutableDictionary *)data name:acc.name];
         
         // update keyPair date in storage
-        [keyring.store updateAccountWithAcc:(NSDictionary *)data isExternal:NO];
+        [keyring.store updateAccountWithAcc:(NSMutableDictionary *)data isExternal:NO];
         successHandler([KeyPairData modelWithDictionary:data error:nil]);
     }];
 }
@@ -166,7 +207,7 @@
 - (KeyPairData *)changeNameWithKeyring:(Keyring *)keyring
                          name:(NSString *)name
 {
-    NSDictionary *json = [MTLJSONAdapter JSONDictionaryFromModel:keyring.current error:nil];
+    NSMutableDictionary *json = [MTLJSONAdapter JSONDictionaryFromModel:keyring.current error:nil].mutableCopy;
     // update json meta data
     [self.service updateKeyPairMetaDataWithAcc:json name:name];
     // update keyPair date in storage
@@ -189,14 +230,14 @@
 // Open a new webView for a DApp,
 // sign extrinsic or msg for the DApp.
 - (void)signAsExtensionWithPassword:(NSString *)password
-               signAsExtensionParam:(NSDictionary *)signAsExtensionParam
-                     successHandler:(void (^ _Nullable)(NSDictionary *data))successHandler
+               signAsExtensionParam:(NSMutableDictionary *)signAsExtensionParam
+                     successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
 {
     [self.service signAsExtensionWithPassword:password
                                          args:signAsExtensionParam
                                successHandler:^(id  _Nullable data) {
         if (data) {
-            NSDictionary *res = @{};
+            NSMutableDictionary *res = @{}.mutableCopy;
             [res setValue:signAsExtensionParam[@"id"] forKey:@"id"];
             [res setValue:data[@"signature"] forKey:@"signature"];
             successHandler(res);

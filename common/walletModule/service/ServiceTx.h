@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ServiceTx : NSObject
 @property (nonatomic, weak) SubstrateService *serviceRoot;
 
-- (void)estimateFeesWithTxInfo:(NSDictionary *)txInfo
+- (void)estimateFeesWithTxInfo:(NSMutableDictionary *)txInfo
                         params:(NSString *)params
                 successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
-- (void)signAndSendWithTxInfo:(NSDictionary *)txInfo
+- (void)signAndSendWithTxInfo:(NSMutableDictionary *)txInfo
                        params:(NSString *)params
                      password:(NSString *)password
                onStatusChange:(void (^ _Nullable)(_Nullable id data))onStatusChange

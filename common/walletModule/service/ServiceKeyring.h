@@ -25,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)injectKeyPairsToWebViewWithKeyring:(Keyring *)keyring
                             successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
-- (NSDictionary *)updateKeyPairMetaDataWithAcc:(NSDictionary *)acc
-                                          name:(NSString *)name;
+- (NSMutableDictionary *)updateKeyPairMetaDataWithAcc:(NSMutableDictionary *)acc
+                                                 name:(NSString *)name;
 
 // Generate a set of new mnemonic.
 - (void)generateMnemonicWithSuccessHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
                  successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
 - (void)signAsExtensionWithPassword:(NSString *)password
-                               args:(NSDictionary *)args
+                               args:(NSMutableDictionary *)args
                      successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
 // Open a new webView for a DApp,

@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 //  final SubScanApi subScan = SubScanApi();
 
+- (instancetype)initWithService:(SubstrateService *)service;
+
 - (void)connectNodeWithKeyringStorage:(Keyring *)keyringStorage
                                 nodes:(NSMutableArray<NetworkParams *> *)nodes
                        successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler;

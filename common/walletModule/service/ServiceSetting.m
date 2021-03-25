@@ -24,7 +24,7 @@
                 successHandler(nil);
                 return;
             }
-            NSDictionary *props = netWorkData;
+            NSMutableDictionary *props = netWorkData;
             [props setValue:data forKey:@"name"];
             successHandler(props);
         }];

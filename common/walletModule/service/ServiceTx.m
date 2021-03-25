@@ -11,14 +11,14 @@
 
 @implementation ServiceTx
 
-- (void)estimateFeesWithTxInfo:(NSDictionary *)txInfo
+- (void)estimateFeesWithTxInfo:(NSMutableDictionary *)txInfo
                         params:(NSString *)params
                 successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
 {
     [self.serviceRoot.webView evalJavascriptWithCode:[NSString stringWithFormat:@"keyring.txFeeEstimate(api, %@, %@)", jsonEncodeWithValue(txInfo), params] successHandler:successHandler];
 }
 
-- (void)signAndSendWithTxInfo:(NSDictionary *)txInfo
+- (void)signAndSendWithTxInfo:(NSMutableDictionary *)txInfo
                        params:(NSString *)params
                      password:(NSString *)password
                onStatusChange:(void (^ _Nullable)(_Nullable id data))onStatusChange

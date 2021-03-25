@@ -7,15 +7,17 @@
 
 #import <Foundation/Foundation.h>
 #import "SubstrateService.h"
+#import "PolkawalletApi.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface WalletSDK : NSObject
+@property (nonatomic, strong) PolkawalletApi *api;
 @property (nonatomic, strong) SubstrateService *service;
 
 - (instancetype)initWithKeyring:(Keyring *)keyring
-                  webViewRunner:(WebViewRunner *)webViewParam
-                         jsCode:(NSString *)jsCode;
+                  webViewRunner:(nullable WebViewRunner *)webViewParam
+                         jsCode:(nullable NSString *)jsCode;
 
 @end
 

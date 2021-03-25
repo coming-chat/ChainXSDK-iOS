@@ -42,27 +42,27 @@
 
 - (NSArray *)keyPairs
 {
-    return [self.storage arrayForKey:@"keyPairs"];
+    return [self.storage arrayForKey:@"keyPairs"] ? : [[NSArray alloc] init];
 }
 
 - (NSArray *)contacts
 {
-    return [self.storage arrayForKey:@"contacts"];
+    return [self.storage arrayForKey:@"contacts"] ? : [[NSArray alloc] init];
 }
 
 - (NSString *)currentPubKey
 {
-    return [self.storage stringForKey:@"currentPubKey"];
+    return [self.storage stringForKey:@"currentPubKey"] ? : [[NSString alloc] init];
 }
 
-- (NSDictionary *)encryptedRawSeeds
+- (NSMutableDictionary *)encryptedRawSeeds
 {
-    return [self.storage dictionaryForKey:@"encryptedRawSeeds"];
+    return [self.storage dictionaryForKey:@"encryptedRawSeeds"].mutableCopy ? : [[NSMutableDictionary alloc] init];
 }
 
-- (NSDictionary *)encryptedMnemonics
+- (NSMutableDictionary *)encryptedMnemonics
 {
-    return [self.storage dictionaryForKey:@"encryptedMnemonics"];
+    return [self.storage dictionaryForKey:@"encryptedMnemonics"].mutableCopy ? : [[NSMutableDictionary alloc] init];
 }
 
 @end

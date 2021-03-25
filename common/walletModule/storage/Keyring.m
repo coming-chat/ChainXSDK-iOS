@@ -98,7 +98,7 @@
 - (NSMutableArray<KeyPairData *> *)toModelArrayWithArray:(NSMutableArray *)array
 {
     NSMutableArray<KeyPairData *> *modelArray = [[NSMutableArray alloc] init];
-    for (NSDictionary *dict in array) {
+    for (NSMutableDictionary *dict in array) {
         [modelArray addObject:[KeyPairData modelWithDictionary:dict error:nil]];
     }
     return modelArray;
@@ -109,7 +109,7 @@
 @interface KeyringPrivateStore ()
 
 @property (nonatomic, strong) NSMutableDictionary<NSString *, NSString *> *iconsMap;
-@property (nonatomic, strong) NSMutableDictionary<NSString *, NSDictionary *> *indicesMap;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableDictionary *> *indicesMap;
 
 @end
 
@@ -119,7 +119,10 @@
 {
     self = [super init];
     if (self) {
-        self.ss58List = @[@0, @2, @7, @42];
+        self.ss58List = @[@0, @2, @7, @42, @44];
+        self.pubKeyAddressMap = @{}.mutableCopy;
+        self.iconsMap = @{}.mutableCopy;
+        self.indicesMap = @{}.mutableCopy;
         [LocalStorage shareInstance];
         [self loadKeyPairsFromStorage];
     }
@@ -145,7 +148,7 @@
 {
     NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
     for (int i = (int)array.count - 1; i >=0; i--) {
-        if (![((NSDictionary *)array[i]).allKeys containsObject:@"observation"]) {
+        if (![((NSMutableDictionary *)array[i]).allKeys containsObject:@"observation"]) {
             [array removeObject:array[i]];
         }
     }
@@ -159,27 +162,29 @@
 
 - (NSMutableArray *)formatAccountWithLs:(NSMutableArray *)ls
 {
-    for (NSDictionary *dict in ls) {
+    for (int i = 0 ; i < ls.count; i++) {
         NSString *networkSS58 = [NSString stringWithFormat:@"%d", self.ss58];
-        if ([dict.allKeys containsObject:@"pubKey"]) {
+        NSMutableDictionary *mDict = [[NSMutableDictionary alloc] initWithDictionary:ls[i]];
+        if ([mDict.allKeys containsObject:@"pubKey"]) {
             if ([self.pubKeyAddressMap.allKeys containsObject:networkSS58]) {
-                if (self.pubKeyAddressMap[networkSS58][dict[@"pubKey"]]) {
-                    [dict setValue:self.pubKeyAddressMap[networkSS58][dict[@"pubKey"]] forKey:@"address"];
+                if (self.pubKeyAddressMap[networkSS58][mDict[@"pubKey"]]) {
+                    [mDict setValue:self.pubKeyAddressMap[networkSS58][mDict[@"pubKey"]] forKey:@"address"];
                 }
             }
-            [dict setValue:self.iconsMap[dict[@"pubKey"]] forKey:@"icon"];
-            [dict setValue:self.indicesMap[dict[@"pubKey"]] forKey:@"indexInfo"];
+            [mDict setValue:self.iconsMap[mDict[@"pubKey"]] forKey:@"icon"];
+            [mDict setValue:self.indicesMap[mDict[@"pubKey"]] forKey:@"indexInfo"];
         }
+        ls[i] = mDict;
     }
     return ls;
 }
 
 - (void)loadKeyPairsFromStorage
 {
-    NSMutableArray<NSDictionary<NSString *, id> *> *ls =[LocalStorage shareInstance].getAccountList;
+    NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls =[LocalStorage shareInstance].getAccountList;
     if (ls.count) {
         for (int i = (int)ls.count - 1; i >=0; i--) {
-            NSDictionary<NSString *, id> *dict = ls[i];
+            NSMutableDictionary<NSString *, id> *dict = ls[i];
             // delete all storageOld data
             [[LocalStorage shareInstance] removeAccountWithPubKey:dict[@"pubKey"]];
             if (dict[@"mnemonic"] || dict[@"rawSeed"]) {
@@ -188,7 +193,7 @@
             }
             // retain accounts from storageOld
             bool exist = false;
-            for (NSDictionary *mDict in [KeyringStorage shareInstance].keyPairs) {
+            for (NSMutableDictionary *mDict in [KeyringStorage shareInstance].keyPairs) {
                 if (mDict[@"pubKey"] == dict[@"pubKey"]) {
                     exist = true;
                     break;
@@ -215,36 +220,37 @@
     }
 }
 
-- (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data
+- (void)updatePubKeyAddressMapWithData:(NSMutableDictionary<NSString *, NSMutableDictionary *> *)data
 {
     self.pubKeyAddressMap = data.mutableCopy;
 }
 
-- (void)updateIconsMapWithData:(NSDictionary<NSString *, NSString *> *)data
+- (void)updateIconsMapWithData:(NSMutableDictionary<NSString *, NSString *> *)data
 {
     [self.iconsMap addEntriesFromDictionary:data];
 }
 
-- (void)updateIndicesMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data
+- (void)updateIndicesMapWithData:(NSMutableDictionary<NSString *, NSMutableDictionary *> *)data
 {
     self.indicesMap = data.mutableCopy;
 }
 
-- (void)addAccountWithAcc:(NSDictionary *)acc
+- (void)addAccountWithAcc:(NSMutableDictionary *)acc
 {
     NSMutableArray *array = [KeyringStorage shareInstance].keyPairs.mutableCopy;
     for (int i = 0; i < array.count; i++) {
-        NSDictionary *dict = array[i];
+        NSMutableDictionary *dict = array[i];
         if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
-            dict = acc;
+            [array removeObject:dict];
             break;
         }
     }
+    [array addObject:acc];
     [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"keyPairs"];
     [self setCurrentPubKey:acc[@"pubKey"]];
 }
 
-- (void)addContactWithAcc:(NSDictionary *)acc
+- (void)addContactWithAcc:(NSMutableDictionary *)acc
 {
     NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
     [array addObject:acc];
@@ -254,7 +260,7 @@
     }
 }
 
-- (void)updateAccountWithAcc:(NSDictionary *)acc
+- (void)updateAccountWithAcc:(NSMutableDictionary *)acc
                   isExternal:(BOOL)isExternal
 {
     if (isExternal) {
@@ -264,11 +270,11 @@
     }
 }
 
-- (void)updateKeyPairWithAcc:(NSDictionary *)acc
+- (void)updateKeyPairWithAcc:(NSMutableDictionary *)acc
 {
     NSMutableArray *array = [KeyringStorage shareInstance].keyPairs.mutableCopy;
     for (int i = 0; i < array.count; i++) {
-        NSDictionary *dict = array[i];
+        NSMutableDictionary *dict = array[i];
         if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
             dict = acc;
             break;
@@ -277,11 +283,11 @@
     [[KeyringStorage shareInstance].storage setValue:array.copy forKey:@"keyPairs"];
 }
 
-- (void)updateContactWithAcc:(NSDictionary *)acc
+- (void)updateContactWithAcc:(NSMutableDictionary *)acc
 {
     NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
     for (int i = 0; i < array.count; i++) {
-        NSDictionary *dict = array[i];
+        NSMutableDictionary *dict = array[i];
         if ([dict[@"pubKey"] isEqualToString:acc[@"pubKey"]]) {
             dict = acc;
             break;
@@ -310,7 +316,7 @@
 {
     NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
     for (int i = 0; i < array.count; i++) {
-        NSDictionary *dict = array[i];
+        NSMutableDictionary *dict = array[i];
         if ([dict[@"pubKey"] isEqualToString:pubKey]) {
             [array removeObject:dict];
             break;
@@ -331,7 +337,7 @@
 {
     NSMutableArray *array = [KeyringStorage shareInstance].contacts.mutableCopy;
     for (int i = 0; i < array.count; i++) {
-        NSDictionary *dict = array[i];
+        NSMutableDictionary *dict = array[i];
         if ([dict[@"pubKey"] isEqualToString:pubKey]) {
             [array removeObject:dict];
             break;
@@ -347,14 +353,14 @@
 {
     NSString *key = passwordToEncryptKey(password);
     NSString *encrypted = [AESCrypt encrypt:seed password:key];
-    NSDictionary *store = [[LocalStorage shareInstance] getSeedsWithSeedType:seedType];
+    NSMutableDictionary *store = [[LocalStorage shareInstance] getSeedsWithSeedType:seedType];
     [store setValue:encrypted forKey:pubKey];
     if ([seedType isEqualToString:@"mnemonic"]) {
-        NSDictionary *mnemonics = [[KeyringStorage shareInstance] encryptedMnemonics];
+        NSMutableDictionary *mnemonics = [[KeyringStorage shareInstance] encryptedMnemonics];
         [mnemonics mtl_dictionaryByAddingEntriesFromDictionary:store];
         [[KeyringStorage shareInstance].storage setValue:mnemonics forKey:@"encryptedMnemonics"];
     }else if ([seedType isEqualToString:@"rawSeed"]){
-        NSDictionary *seeds = [[KeyringStorage shareInstance] encryptedRawSeeds];
+        NSMutableDictionary *seeds = [[KeyringStorage shareInstance] encryptedRawSeeds];
         [seeds mtl_dictionaryByAddingEntriesFromDictionary:store];
         [[KeyringStorage shareInstance].storage setValue:seeds forKey:@"encryptedRawSeeds"];
     }else{
@@ -367,23 +373,23 @@
                               passOld:(NSString *)passOld
                               passNew:(NSString *)passNew
 {
-    NSDictionary<NSString *, id> *seed = [self getDecryptedSeedWithPubKey:pubKey password:passOld];
+    NSMutableDictionary<NSString *, id> *seed = [self getDecryptedSeedWithPubKey:pubKey password:passOld];
     [self encryptSeedAndSaveWithPubKey:pubKey seed:seed[@"seed"] seedType:seed[@"type"] password:passNew];
 }
 
-- (NSDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
+- (NSMutableDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
                                                     password:(NSString *)password
 {
     NSString *key = passwordToEncryptKey(password);
     if ([[[KeyringStorage shareInstance] encryptedMnemonics].allKeys containsObject:pubKey]) {
         NSString *mnemonic = [[KeyringStorage shareInstance] encryptedMnemonics][pubKey];
-        NSDictionary *res = @{@"type": @"mnemonic"};
+        NSMutableDictionary *res = @{@"type": @"mnemonic"}.mutableCopy;
         [res setValue:[AESCrypt decrypt:mnemonic password:key] forKey:@"seed"];
         return res;
     }
     if ([[[KeyringStorage shareInstance] encryptedRawSeeds].allKeys containsObject:pubKey]) {
         NSString *rawSeed = [[KeyringStorage shareInstance] encryptedRawSeeds][pubKey];
-        NSDictionary *res = @{@"type": @"rawSeed"};
+        NSMutableDictionary *res = @{@"type": @"rawSeed"}.mutableCopy;
         [res setValue:[AESCrypt decrypt:rawSeed password:key] forKey:@"seed"];
         return res;
     }
@@ -404,18 +410,18 @@
 
 - (void)migrateSeeds
 {
-    NSArray<NSDictionary *> *res = @[[[LocalStorage shareInstance] getSeedsWithSeedType:@"mnemonic"], [[LocalStorage shareInstance] getSeedsWithSeedType:@"rawSeed"]];
+    NSArray<NSMutableDictionary *> *res = @[[[LocalStorage shareInstance] getSeedsWithSeedType:@"mnemonic"], [[LocalStorage shareInstance] getSeedsWithSeedType:@"rawSeed"]];
     if (res[0].allKeys.count) {
         NSMutableDictionary *dict = [KeyringStorage shareInstance].encryptedMnemonics.mutableCopy;
         [dict addEntriesFromDictionary:res[0]];
         [[KeyringStorage shareInstance].storage setObject:dict forKey:@"encryptedMnemonics"];
-        [[LocalStorage shareInstance] setSeedsWithSeedType:@"mnemonic" value:@{}];
+        [[LocalStorage shareInstance] setSeedsWithSeedType:@"mnemonic" value:@{}.mutableCopy];
     }
     if (res[1].allKeys.count) {
         NSMutableDictionary *dict = [KeyringStorage shareInstance].encryptedRawSeeds.mutableCopy;
         [dict addEntriesFromDictionary:res[1]];
         [[KeyringStorage shareInstance].storage setObject:dict forKey:@"encryptedRawSeeds"];
-        [[LocalStorage shareInstance] setSeedsWithSeedType:@"rawSeed" value:@{}];
+        [[LocalStorage shareInstance] setSeedsWithSeedType:@"rawSeed" value:@{}.mutableCopy];
     }
 }
 

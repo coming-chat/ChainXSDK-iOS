@@ -16,10 +16,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ServiceSetting *service;
 
 // query network const.
-- (void)queryNetworkConstWithSuccessHandler:(void (^ _Nullable)(NSDictionary *data))successHandler;
+- (void)queryNetworkConstWithSuccessHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler;
 
 // query network properties.
-- (void)queryNetworkPropsWithSuccessHandler:(void (^ _Nullable)(NSDictionary *data))successHandler;
+- (void)queryNetworkPropsWithSuccessHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler;
 
 // subscribe best number.
 // @return [String] msgChannel, call unsubscribeMessage(msgChannel) to unsub.

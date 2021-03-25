@@ -37,24 +37,24 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *externals;
 @property (nonatomic, strong) NSMutableArray *contacts;
 
-@property (nonatomic, strong) NSMutableDictionary<NSString *, NSDictionary *> *pubKeyAddressMap;
+@property (nonatomic, strong) NSMutableDictionary<NSString *, NSMutableDictionary *> *pubKeyAddressMap;
 
-- (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
+- (void)updatePubKeyAddressMapWithData:(NSMutableDictionary<NSString *, NSMutableDictionary *> *)data;
 
-- (void)updateIconsMapWithData:(NSDictionary<NSString *, NSString *> *)data;
+- (void)updateIconsMapWithData:(NSMutableDictionary<NSString *, NSString *> *)data;
 
-- (void)updateIndicesMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
+- (void)updateIndicesMapWithData:(NSMutableDictionary<NSString *, NSMutableDictionary *> *)data;
 
-- (void)addAccountWithAcc:(NSDictionary *)acc;
+- (void)addAccountWithAcc:(NSMutableDictionary *)acc;
 
-- (void)addContactWithAcc:(NSDictionary *)acc;
+- (void)addContactWithAcc:(NSMutableDictionary *)acc;
 
-- (void)updateAccountWithAcc:(NSDictionary *)acc
+- (void)updateAccountWithAcc:(NSMutableDictionary *)acc
                   isExternal:(BOOL)isExternal;
 
-- (void)updateKeyPairWithAcc:(NSDictionary *)acc;
+- (void)updateKeyPairWithAcc:(NSMutableDictionary *)acc;
 
-- (void)updateContactWithAcc:(NSDictionary *)acc;
+- (void)updateContactWithAcc:(NSMutableDictionary *)acc;
 
 - (void)deleteAccountWithPubKey:(NSString *)pubKey;
 
@@ -71,7 +71,7 @@ NS_ASSUME_NONNULL_BEGIN
                               passOld:(NSString *)passOld
                               passNew:(NSString *)passNew;
 
-- (NSDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
+- (NSMutableDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
                                                     password:(NSString *)password;
 
 - (BOOL)checkSeedExistWithKeyType:(NSString *)keyType

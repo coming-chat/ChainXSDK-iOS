@@ -62,7 +62,7 @@
     self.msgCompleters[method] = successHandler;
     [self.web evaluateJavaScript:script completionHandler:nil];
 }
-
+//successHandler    void (^)(id)    0x00000001053fd7b0
 - (void)connectNode:(NSArray<NetworkParams *> *)nodes
      successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler
 {
@@ -72,8 +72,9 @@
     }
     [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", jsonEncodeWithValue(endpoints)] successHandler:^(id  _Nullable data) {
         if (data) {
-            for (NetworkParams *data in nodes) {
-                if ([data.endpoint isEqualToString:(NSString *)data]) {
+            //wss://kusama-1.polkawallet.io:9944/
+            for (NetworkParams *node in nodes) {
+                if ([node.endpoint isEqualToString:(NSString *)data]) {
                     successHandler(data);
                     return;;
                 }
@@ -126,7 +127,7 @@
     
     NSLog(@"JS 调用了: \n%@ 方法\n传回参数: \n%@",message.name,message.body);
     
-    NSDictionary *msgDict = jsonDecodeWithString(message.body);
+    NSMutableDictionary *msgDict = jsonDecodeWithString(message.body);
     if ([msgDict.allKeys containsObject:@"path"] && [msgDict.allKeys containsObject:@"data"]) {
         NSString *path = msgDict[@"path"];
         if (self.msgCompleters[path] != nil) {

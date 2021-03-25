@@ -16,8 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSArray *keyPairs;
 @property (nonatomic, strong) NSArray *contacts;
 @property (nonatomic, copy) NSString *currentPubKey;
-@property (nonatomic, strong) NSDictionary *encryptedRawSeeds;
-@property (nonatomic, strong) NSDictionary *encryptedMnemonics;
+@property (nonatomic, strong) NSMutableDictionary *encryptedRawSeeds;
+@property (nonatomic, strong) NSMutableDictionary *encryptedMnemonics;
 
 +(instancetype)shareInstance;
 

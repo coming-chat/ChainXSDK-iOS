@@ -9,19 +9,19 @@
 + (NSString *)encrypt:(NSString *)message password:(NSString *)password
 {
     
-    NSDictionary *dict = @{@"method": @"encrypt", @"arguments": @{@"input":message, @"key":password}};
+    NSMutableDictionary *dict = @{@"method": @"encrypt", @"arguments": @{@"input":message, @"key":password}}.mutableCopy;
     return [self handleMethodCall:dict];
 }
 
 + (NSString *)decrypt:(NSString *)base64EncodedString password:(NSString *)password
 {
-    NSDictionary *dict = @{@"method": @"decrypt", @"arguments": @{@"input":base64EncodedString, @"key":password}};
+    NSMutableDictionary *dict = @{@"method": @"decrypt", @"arguments": @{@"input":base64EncodedString, @"key":password}}.mutableCopy;
     return [self handleMethodCall:dict];
 }
 
-+ (NSString *)handleMethodCall:(NSDictionary *)call {
++ (NSString *)handleMethodCall:(NSMutableDictionary *)call {
 
-      NSDictionary *argsMap  = call[@"arguments"];
+      NSMutableDictionary *argsMap  = call[@"arguments"];
 
     if ([@"getPlatformVersion" isEqualToString:call[@"method"]]) {
         return [@"iOS " stringByAppendingString:[[UIDevice currentDevice] systemVersion]];

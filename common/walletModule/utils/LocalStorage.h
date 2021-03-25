@@ -13,28 +13,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)shareInstance;
 
-- (void)addAccountWithAcc:(NSDictionary<NSString *, id> *)acc;
+- (void)addAccountWithAcc:(NSMutableDictionary<NSString *, id> *)acc;
 
 - (void)removeAccountWithPubKey:(NSString *)pubKey;
 
-- (NSMutableArray<NSDictionary<NSString *, id> *> *)getAccountList;
+- (NSMutableArray<NSMutableDictionary<NSString *, id> *> *)getAccountList;
 
 - (void)setCurrentAccountWithPubKey:(NSString *)pubKey;
 
 - (NSString *)getCurrentAccount;
 
-- (void)addContactWithDictionary:(NSDictionary<NSString *, id> *)dict;
+- (void)addContactWithDictionary:(NSMutableDictionary<NSString *, id> *)dict;
 
 - (void)removeContactWithAddress:(NSString *)address;
 
-- (void)updateContactDictionary:(NSDictionary<NSString *, id> *)dict;
+- (void)updateContactDictionary:(NSMutableDictionary<NSString *, id> *)dict;
 
-- (NSMutableArray<NSDictionary<NSString *, id> *> *)getContactList;
+- (NSMutableArray<NSMutableDictionary<NSString *, id> *> *)getContactList;
 
 - (void)setSeedsWithSeedType:(NSString *)seedType
-                       value:(NSDictionary *)value;
+                       value:(NSMutableDictionary *)value;
 
-- (NSDictionary *)getSeedsWithSeedType:(NSString *)seedType;
+- (NSMutableDictionary *)getSeedsWithSeedType:(NSString *)seedType;
 
 - (void)setObjectWithKey:(NSString *)key
                    value:(id)value;

@@ -16,20 +16,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) ServiceTx *service;
 
 // Estimate tx fees, [params] will be ignored if we have [rawParam].
-- (void)estimateFeesWithTxInfo:(NSDictionary *)txInfo
+- (void)estimateFeesWithTxInfo:(NSMutableDictionary *)txInfo
                         params:(NSMutableArray *)params
                       rawParam:(NSString *)rawParam
-                successHandler:(void (^ _Nullable)(NSDictionary *data))successHandler;
+                successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler;
 
 // Send tx, [params] will be ignored if we have [rawParam].
 // [onStatusChange] is a callback when tx status change.
 // @return txHash [string] if tx finalized success.
-- (void)signAndSendWithTxInfo:(NSDictionary *)txInfo
+- (void)signAndSendWithTxInfo:(NSMutableDictionary *)txInfo
                        params:(NSMutableArray *)params
                      password:(NSString *)password
                onStatusChange:(void (^ _Nullable)(_Nullable id data))onStatusChange
                      rawParam:(NSString *)rawParam
-               successHandler:(void (^ _Nullable)(NSDictionary *data))successHandler
+               successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
                failureHandler:(void (^ _Nullable)(NSString *error))failureHandler;
 
 @end

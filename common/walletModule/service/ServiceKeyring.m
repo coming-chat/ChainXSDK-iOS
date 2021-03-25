@@ -17,7 +17,7 @@
                          successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
 {
     NSMutableArray<NSString *> *pubKeys = [[NSMutableArray alloc] init];
-    for (NSDictionary *dict in keyPairs) {
+    for (NSMutableDictionary *dict in keyPairs) {
         [pubKeys addObject:dict[@"pubKey"]];
     }
     [self.serviceRoot.account encodeAddressWithPubKeys:pubKeys ss58List:ss58 successHandler:successHandler];
@@ -34,7 +34,7 @@
 {
     if (keyring.store.list.count) {
         [self.serviceRoot.webView evalJavascriptWithCode:[NSString stringWithFormat:@"keyring.initKeys(%@, %@)", jsonEncodeWithValue(keyring.store.list), jsonEncodeWithValue(keyring.store.ss58List)] successHandler:^(id  _Nullable data) {
-            NSDictionary<NSString *, NSDictionary *> *res = data;
+            NSMutableDictionary<NSString *, NSMutableDictionary *> *res = data;
             [self getPubKeyAddressMapWithKeyPairs:keyring.store.contacts ss58List:keyring.store.ss58List.mutableCopy successHandler:^(id  _Nullable data) {
                 NSArray *keys;
                 int i, count;
@@ -56,12 +56,12 @@
     }
 }
 
-- (NSDictionary *)updateKeyPairMetaDataWithAcc:(NSDictionary *)acc
+- (NSMutableDictionary *)updateKeyPairMetaDataWithAcc:(NSMutableDictionary *)acc
                                           name:(NSString *)name
 {
     [acc setValue:name forKey:@"name"];
     [acc[@"meta"] setValue:name forKey:@"name"];
-    if (![((NSDictionary *)acc[@"meta"]).allKeys containsObject:@"whenCreated"]) {
+    if (![((NSMutableDictionary *)acc[@"meta"]).allKeys containsObject:@"whenCreated"]) {
         [acc[@"meta"] setValue:@(NSDate.date.timeIntervalSince1970) forKey:@"whenCreated"];
     }else{
         if (!acc[@"meta"][@"whenCreated"]) {
@@ -94,7 +94,7 @@
     code = [regex stringByReplacingMatchesInString:code options:0 range:NSMakeRange(0, [code length]) withTemplate:@""];
     
     [self.serviceRoot.webView evalJavascriptWithCode:code successHandler:^(id  _Nullable data) {
-        NSDictionary<NSString *, id> *acc = data;
+        NSMutableDictionary<NSString *, id> *acc = data;
         if (!acc) {
             successHandler(acc);
             return;
@@ -141,7 +141,7 @@
 }
 
 - (void)signAsExtensionWithPassword:(NSString *)password
-                               args:(NSDictionary *)args
+                               args:(NSMutableDictionary *)args
                      successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
 {
     NSString *call = [args[@"msgType"] isEqualToString:@"pub(bytes.sign)"] ? @"signBytesAsExtension" : @"signTxAsExtension";

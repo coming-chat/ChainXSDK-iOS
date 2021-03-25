@@ -52,7 +52,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     return self;
 }
 
-- (void)addAccountWithAcc:(NSDictionary<NSString *, id> *)acc
+- (void)addAccountWithAcc:(NSMutableDictionary<NSString *, id> *)acc
 {
     [self addItemToListWithStoreKey:self.accountsKey dictionary:acc];
 }
@@ -62,7 +62,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     [self removeItemFromListWithStoreKey:self.accountsKey itemKey:@"pubKey" itemValue:pubKey];
 }
 
-- (NSMutableArray<NSDictionary<NSString *, id> *> *)getAccountList
+- (NSMutableArray<NSMutableDictionary<NSString *, id> *> *)getAccountList
 {
     return [self getListWithStoreKey:self.accountsKey];
 }
@@ -77,7 +77,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     return [self getKVWithKey:self.currentAccountKey];
 }
 
-- (void)addContactWithDictionary:(NSDictionary<NSString *, id> *)dict
+- (void)addContactWithDictionary:(NSMutableDictionary<NSString *, id> *)dict
 {
     [self addItemToListWithStoreKey:self.contactsKey dictionary:dict];
 }
@@ -87,29 +87,29 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     [self removeItemFromListWithStoreKey:self.contactsKey itemKey:@"address" itemValue:address];
 }
 
-- (void)updateContactDictionary:(NSDictionary<NSString *, id> *)dict
+- (void)updateContactDictionary:(NSMutableDictionary<NSString *, id> *)dict
 {
     [self updateItemInListWithStoreKey:self.contactsKey itemKey:@"address" itemValue:dict[@"address"] itemNew:dict];
 }
 
-- (NSMutableArray<NSDictionary<NSString *, id> *> *)getContactList
+- (NSMutableArray<NSMutableDictionary<NSString *, id> *> *)getContactList
 {
     return [self getListWithStoreKey:self.contactsKey];
 }
 
 - (void)setSeedsWithSeedType:(NSString *)seedType
-                       value:(NSDictionary *)value
+                       value:(NSMutableDictionary *)value
 {
     [self setKVWithKey:[NSString stringWithFormat:@"%@_%@", self.seedKey, seedType] value:jsonEncodeWithValue(value)];
 }
 
-- (NSDictionary *)getSeedsWithSeedType:(NSString *)seedType
+- (NSMutableDictionary *)getSeedsWithSeedType:(NSString *)seedType
 {
     NSString *value = [self getKVWithKey:[NSString stringWithFormat:@"%@_%@", self.seedKey, seedType]];
     if (value) {
         return jsonDecodeWithString(value);
     }
-    return @{};
+    return @{}.mutableCopy;
 }
 
 - (void)setObjectWithKey:(NSString *)key
@@ -131,9 +131,9 @@ const int customCacheTimeLength = 10 * 60 * 1000;
                                  key:(NSString *)key
                                value:(id)value
 {
-    NSDictionary *dict = [self getObjectWithKey:key];
+    NSMutableDictionary *dict = [self getObjectWithKey:key];
     if (!dict) {
-        dict = @{};
+        dict = @{}.mutableCopy;
     }
     [dict setValue:value forKey:@"accPubKey"];
     [self setObjectWithKey:key value:value];
@@ -142,7 +142,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
 - (id)getAccountCacheWithAccPubKey:(NSString *)accPubKey
                                key:(NSString *)key
 {
-    NSDictionary *dict = [self getObjectWithKey:key];
+    NSMutableDictionary *dict = [self getObjectWithKey:key];
     if (!dict) {
         return nil;
     }
@@ -166,9 +166,9 @@ const int customCacheTimeLength = 10 * 60 * 1000;
 }
 
 - (void)addItemToListWithStoreKey:(NSString *)storeKey
-                       dictionary:(NSDictionary<NSString *, id> *)dict
+                       dictionary:(NSMutableDictionary<NSString *, id> *)dict
 {
-    NSMutableArray<NSDictionary<NSString *, id> *> *ls = [[NSMutableArray alloc] init];
+    NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls = [[NSMutableArray alloc] init];
     NSString *str = [self getKVWithKey:storeKey];
     if (str) {
         ls = jsonDecodeWithString(str);
@@ -181,8 +181,8 @@ const int customCacheTimeLength = 10 * 60 * 1000;
                                itemKey:(NSString *)itemKey
                              itemValue:(NSString *)itemValue
 {
-    NSMutableArray<NSDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
-    for (NSDictionary<NSString *, id> *dict in ls) {
+    NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
+    for (NSMutableDictionary<NSString *, id> *dict in ls) {
         if ([dict.allKeys containsObject:itemKey]) {
             if (dict[itemKey] == itemValue) {
                 [ls removeObject:dict];
@@ -195,10 +195,10 @@ const int customCacheTimeLength = 10 * 60 * 1000;
 - (void)updateItemInListWithStoreKey:(NSString *)storeKey
                                itemKey:(NSString *)itemKey
                            itemValue:(NSString *)itemValue
-                             itemNew:(NSDictionary<NSString *, id> *)newItem
+                             itemNew:(NSMutableDictionary<NSString *, id> *)newItem
 {
-    NSMutableArray<NSDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
-    for (NSDictionary<NSString *, id> *dict in ls) {
+    NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
+    for (NSMutableDictionary<NSString *, id> *dict in ls) {
         if ([dict.allKeys containsObject:itemKey]) {
             if (dict[itemKey] == itemValue) {
                 [ls removeObject:dict];
@@ -210,9 +210,9 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     [self setKVWithKey:storeKey value:jsonEncodeWithValue(ls)];
 }
 
-- (NSMutableArray<NSDictionary<NSString *, id> *> *)getListWithStoreKey:(NSString *)storeKey
+- (NSMutableArray<NSMutableDictionary<NSString *, id> *> *)getListWithStoreKey:(NSString *)storeKey
 {
-    NSMutableArray<NSDictionary<NSString *, id> *> *res = [[NSMutableArray alloc] init];
+    NSMutableArray<NSMutableDictionary<NSString *, id> *> *res = [[NSMutableArray alloc] init];
     NSString *str = [self getKVWithKey:storeKey];
     if (str) {
         res = jsonDecodeWithString(str);

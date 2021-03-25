@@ -15,8 +15,8 @@
                   successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
 {
     [self.service encodeAddressWithPubKeys:pubKeys ss58List:@[@(self.apiRoot.connectedNode.ss58)].mutableCopy successHandler:^(id  _Nullable data) {
-        if ([data isKindOfClass:NSDictionary.class]) {
-            if ([((NSDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%ld", (long)self.apiRoot.connectedNode.ss58]]) {
+        if ([data isKindOfClass:NSMutableDictionary.class]) {
+            if ([((NSMutableDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%ld", (long)self.apiRoot.connectedNode.ss58]]) {
                 successHandler(data[[NSString stringWithFormat:@"%ld", (long)self.apiRoot.connectedNode.ss58]]);
                 return;
             }

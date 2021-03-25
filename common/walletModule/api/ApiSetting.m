@@ -22,13 +22,13 @@
 }
 
 // query network const.
-- (void)queryNetworkConstWithSuccessHandler:(void (^ _Nullable)(NSDictionary *data))successHandler
+- (void)queryNetworkConstWithSuccessHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
 {
     [self.service queryNetworkConstWithSuccessHandler:successHandler];
 }
 
 // query network properties.
-- (void)queryNetworkPropsWithSuccessHandler:(void (^ _Nullable)(NSDictionary *data))successHandler
+- (void)queryNetworkPropsWithSuccessHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
 {
     [self.service queryNetworkPropsWithSuccessHandler:successHandler];
 }
