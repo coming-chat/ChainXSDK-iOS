@@ -10,6 +10,7 @@
 #import "LocalStorage.h"
 #import "NSObject+jsonExtention.h"
 #import "AESCrypt.h"
+#import "NSDictionary+MTLManipulationAdditions.h"
 
 @interface Keyring ()
 
@@ -345,15 +346,60 @@
                             password:(NSString *)password
 {
     NSString *key = passwordToEncryptKey(password);
-    NSString *encrypted = [AESCrypt encrypt:seed password:password];
-    //61313233343536000000000000000000
-    //61313233343536000000000000000000
-    //wing know chapter eight shed lens mandate lake twenty useless bless glory
-    //wing know chapter eight shed lens mandate lake twenty useless bless glory
-    //F06D8AC44B7F7ED643F84959421F3AAFFF8FC607A7552D748187C561CAEC0E94A73A9EC4FD0DB2A981EC860DD8B65E820BF4A33D364D8F86AA5E1A96FF87E4149B7FF1C6E7632C35511B770A8706B941
-    //gvcJCMlyjYixpePckfCbBgUJsuaav+cMEjrsaAHOC+g1Jo1jQhpqHSIRsi1C8yvSW1wiDvAEHV/dnavM/Q9QCBo4keNP4qhImd0fnUlrtQ8=
-    NSLog(@"%@", encrypted);
-    
+    NSString *encrypted = [AESCrypt encrypt:seed password:key];
+    NSDictionary *store = [[LocalStorage shareInstance] getSeedsWithSeedType:seedType];
+    [store setValue:encrypted forKey:pubKey];
+    if ([seedType isEqualToString:@"mnemonic"]) {
+        NSDictionary *mnemonics = [[KeyringStorage shareInstance] encryptedMnemonics];
+        [mnemonics mtl_dictionaryByAddingEntriesFromDictionary:store];
+        [[KeyringStorage shareInstance].storage setValue:mnemonics forKey:@"encryptedMnemonics"];
+    }else if ([seedType isEqualToString:@"rawSeed"]){
+        NSDictionary *seeds = [[KeyringStorage shareInstance] encryptedRawSeeds];
+        [seeds mtl_dictionaryByAddingEntriesFromDictionary:store];
+        [[KeyringStorage shareInstance].storage setValue:seeds forKey:@"encryptedRawSeeds"];
+    }else{
+        //TODO::处理seedType不识别情况
+        
+    }
+}
+
+- (void)updateEncryptedSeedWithPubKey:(NSString *)pubKey
+                              passOld:(NSString *)passOld
+                              passNew:(NSString *)passNew
+{
+    NSDictionary<NSString *, id> *seed = [self getDecryptedSeedWithPubKey:pubKey password:passOld];
+    [self encryptSeedAndSaveWithPubKey:pubKey seed:seed[@"seed"] seedType:seed[@"type"] password:passNew];
+}
+
+- (NSDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
+                                                    password:(NSString *)password
+{
+    NSString *key = passwordToEncryptKey(password);
+    if ([[[KeyringStorage shareInstance] encryptedMnemonics].allKeys containsObject:pubKey]) {
+        NSString *mnemonic = [[KeyringStorage shareInstance] encryptedMnemonics][pubKey];
+        NSDictionary *res = @{@"type": @"mnemonic"};
+        [res setValue:[AESCrypt decrypt:mnemonic password:key] forKey:@"seed"];
+        return res;
+    }
+    if ([[[KeyringStorage shareInstance] encryptedRawSeeds].allKeys containsObject:pubKey]) {
+        NSString *rawSeed = [[KeyringStorage shareInstance] encryptedRawSeeds][pubKey];
+        NSDictionary *res = @{@"type": @"rawSeed"};
+        [res setValue:[AESCrypt decrypt:rawSeed password:key] forKey:@"seed"];
+        return res;
+    }
+    return nil;
+}
+
+- (BOOL)checkSeedExistWithKeyType:(NSString *)keyType
+                           pubKey:(NSString *)pubKey
+{
+    if ([keyType isEqualToString:@"mnemonic"]) {
+        return [[[KeyringStorage shareInstance] encryptedMnemonics].allKeys containsObject:pubKey];
+    }else if ([keyType isEqualToString:@"rawSeed"]){
+        return [[[KeyringStorage shareInstance] encryptedRawSeeds].allKeys containsObject:pubKey];
+    }else{
+        return NO;
+    }
 }
 
 - (void)migrateSeeds

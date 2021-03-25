@@ -25,6 +25,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 //  final SubScanApi subScan = SubScanApi();
 
+- (void)connectNodeWithKeyringStorage:(Keyring *)keyringStorage
+                                nodes:(NSMutableArray<NetworkParams *> *)nodes
+                       successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler;
+
+- (void)subscribeMessageWithJSCall:(NSString *)JSCall
+                            params:(NSMutableArray *)params
+                           channel:(NSString *)channel
+                          callback:(void (^ _Nullable)(_Nullable id data))callback
+                    successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
+
+- (void)unsubscribeMessageWithChannel:(NSString *)channel;
+
 @end
 
 NS_ASSUME_NONNULL_END

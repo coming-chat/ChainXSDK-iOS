@@ -113,13 +113,13 @@
 
 - (void)checkPasswordWithPubKey:(NSString *)pubKey
                            pass:(NSString *)pass
-                 successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+                 successHandler:(void (^)(BOOL data))successHandler
 {
     [self.serviceRoot.webView evalJavascriptWithCode:[NSString stringWithFormat:@"keyring.checkPassword(\"%@\", \"%@\")", pubKey, pass] successHandler:^(id  _Nullable data) {
         if (!data) {
-            successHandler(@NO);
+            successHandler(NO);
         }
-        successHandler(@YES);
+        successHandler(YES);
     }];
 }
 

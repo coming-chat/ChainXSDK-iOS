@@ -8,6 +8,9 @@
 #import <Foundation/Foundation.h>
 @class PolkawalletApi;
 @class ServiceKeyring;
+@class Keyring;
+@class KeyPairData;
+@class SeedBackupData;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,6 +28,64 @@ typedef NS_ENUM(NSUInteger, CryptoType) {
 @interface ApiKeyring : NSObject
 @property (nonatomic, strong) PolkawalletApi *apiRoot;
 @property (nonatomic, strong) ServiceKeyring *service;
+
+- (void)generateMnemonicWithSuccessHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
+
+- (void)importAccountWithKeyType:(KeyType)keyType
+                             key:(NSString *)key
+                            name:(NSString *)name
+                        password:(NSString *)password
+                  successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+                  failureHandler:(void (^ _Nullable)(_Nullable id data))failureHandler;
+
+- (void)updatePubKeyAddressMapWithKeyring:(Keyring *)keyring;
+
+- (void)updatePubKeyIconsMapWithKeyring:(Keyring *)keyring
+                                 pubKey:(NSString *)pubKey;
+
+- (void)updateIndicesMapWithKeyring:(Keyring *)keyring
+                          addresses:(nullable NSMutableArray<NSString *> *)addresses;
+
+// Decrypt and get the backup of seed.
+- (SeedBackupData *)getDecryptedSeedWithKeyring:(Keyring *)keyring
+                                       password:(NSString *)password;
+
+// delete account from storage
+- (void)deleteAccountWithKeyring:(Keyring *)keyring
+                         account:(KeyPairData *)account;
+
+// check password of account
+- (void)checkPasswordWithAccount:(KeyPairData *)account
+                        password:(NSString *)password
+                  successHandler:(void (^)(BOOL result))successHandler;
+
+// change password of account
+- (void)changePasswordWithKeyring:(Keyring *)keyring
+                          passOld:(NSString *)passOld
+                          passNew:(NSString *)passNew
+                   successHandler:(void (^ _Nullable)(KeyPairData *data))successHandler;
+
+// change name of account
+- (KeyPairData *)changeNameWithKeyring:(Keyring *)keyring
+                                  name:(NSString *)name;
+
+// Check if derive path is valid, return [null] if valid,
+// and return error message if invalid.
+- (void)checkDerivePathWithSeed:(NSString *)seed
+                           path:(NSString *)path
+                     cryptoType:(NSString *)cryptoType
+                 successHandler:(void (^ _Nullable)(NSString *data))successHandler;
+
+// Open a new webView for a DApp,
+// sign extrinsic or msg for the DApp.
+- (void)signAsExtensionWithPassword:(NSString *)password
+               signAsExtensionParam:(NSDictionary *)signAsExtensionParam
+                     successHandler:(void (^ _Nullable)(NSDictionary *data))successHandler;
+
+- (void)signatureVerifyWithMessage:(NSString *)message
+                         signature:(NSString *)signature
+                           address:(NSString *)address
+                    successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
 @end
 

@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)checkPasswordWithPubKey:(NSString *)pubKey
                            pass:(NSString *)pass
-                 successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
+                 successHandler:(void (^)(BOOL data))successHandler;
 
 - (void)changePasswordWithPubKey:(NSString *)pubKey
                          passOld:(NSString *)passOld

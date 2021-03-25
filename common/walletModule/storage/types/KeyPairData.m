@@ -6,8 +6,13 @@
 //
 
 #import "KeyPairData.h"
+#import "NSDictionary+MTLMappingAdditions.h"
 
 @implementation KeyPairData
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
+    return [NSDictionary mtl_identityPropertyMapWithModel:[self class]];
+}
 
 @end
 

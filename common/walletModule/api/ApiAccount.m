@@ -53,7 +53,57 @@
 - (void)unsubscribeBalance
 {
     NSString *msgChannel = @"Balance";
-//    self.apiRoot 
+    [self.apiRoot unsubscribeMessageWithChannel:msgChannel];
+}
+
+// Get on-chain account info of addresses
+- (void)queryIndexInfoWithAddresses:(NSMutableArray *)addresses
+                     successHandler:(void (^ _Nullable)(NSMutableArray *list))successHandler
+{
+    if (!addresses || addresses.count == 0) {
+        successHandler(@[].mutableCopy);
+        return;
+    }
+    [self.service queryIndexInfoWithAddresses:addresses successHandler:successHandler];
+}
+
+// query address with account index
+- (void)queryAddressWithAccountIndexWithIndex:(NSString *)index
+                               successHandler:(void (^ _Nullable)(NSString *string))successHandler
+{
+    [self.service queryAddressWithAccountIndex:index ss58:(int)self.apiRoot.connectedNode.ss58 successHandler:^(id  _Nullable data) {
+        if (data) {
+            if (((NSArray *)data).count > 0) {
+                successHandler(data[0]);
+            }
+        }else{
+            successHandler(nil);
+        }
+    }];
+}
+
+// Get icons of pubKeys
+// return svg strings
+- (void)getPubKeyIconsWithKeys:(NSMutableArray<NSString *> *)keys
+                successHandler:(void (^ _Nullable)(NSMutableArray *list))successHandler
+{
+    if (!keys || keys.count == 0) {
+        successHandler(@[].mutableCopy);
+        return;
+    }
+    [self.service getPubKeyIconsWithKeys:keys successHandler:successHandler];
+}
+
+// Get icons of addresses
+// return svg strings
+- (void)getAddressIconsWithKeys:(NSMutableArray<NSString *> *)addresses
+                 successHandler:(void (^ _Nullable)(NSMutableArray *list))successHandler
+{
+    if (!addresses || addresses.count == 0) {
+        successHandler(@[].mutableCopy);
+        return;
+    }
+    [self.service getAddressIconsWithAddresses:addresses successHandler:successHandler];
 }
 
 @end

@@ -41,13 +41,41 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updatePubKeyAddressMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
 
+- (void)updateIconsMapWithData:(NSDictionary<NSString *, NSString *> *)data;
 
+- (void)updateIndicesMapWithData:(NSDictionary<NSString *, NSDictionary *> *)data;
+
+- (void)addAccountWithAcc:(NSDictionary *)acc;
+
+- (void)addContactWithAcc:(NSDictionary *)acc;
+
+- (void)updateAccountWithAcc:(NSDictionary *)acc
+                  isExternal:(BOOL)isExternal;
+
+- (void)updateKeyPairWithAcc:(NSDictionary *)acc;
+
+- (void)updateContactWithAcc:(NSDictionary *)acc;
+
+- (void)deleteAccountWithPubKey:(NSString *)pubKey;
+
+- (void)deleteKeyPairWithPubKey:(NSString *)pubKey;
+
+- (void)deleteContactWithPubKey:(NSString *)pubKey;
 
 - (void)encryptSeedAndSaveWithPubKey:(NSString *)pubKey
                                 seed:(NSString *)seed
                             seedType:(NSString *)seedType
                             password:(NSString *)password;
 
+- (void)updateEncryptedSeedWithPubKey:(NSString *)pubKey
+                              passOld:(NSString *)passOld
+                              passNew:(NSString *)passNew;
+
+- (NSDictionary<NSString *, id> *)getDecryptedSeedWithPubKey:(NSString *)pubKey
+                                                    password:(NSString *)password;
+
+- (BOOL)checkSeedExistWithKeyType:(NSString *)keyType
+                           pubKey:(NSString *)pubKey;
 
 @end
 

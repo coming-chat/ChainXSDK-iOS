@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
                         callback:(void (^ _Nullable)(_Nullable id data))callback
                   successHandler:(void (^ _Nullable)(_Nullable id data))successHandler;
 
+- (void)unsubscribeMessageWithChannel:(NSString *)channel;
+
 - (void)addMsgHandlerWithChannel:(NSString *)channel
                        onMessage:(void (^)(_Nullable id data))onMessage;
 

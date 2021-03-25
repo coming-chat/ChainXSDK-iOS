@@ -192,6 +192,8 @@
 				C28B50DF260834A000245864 /* LocalStorage.m */,
 				C2721D87260989A70078099F /* NSObject+jsonExtention.h */,
 				C2721D88260989A70078099F /* NSObject+jsonExtention.m */,
+				C2E4FC0A2601F25500861B5F /* WalletWebView.h */,
+				C2E4FC092601F25500861B5F /* WalletWebView.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -303,8 +305,6 @@
 				C2EB096325EF736200EC965D /* SceneDelegate.m */,
 				C2EB096525EF736200EC965D /* ViewController.h */,
 				C2EB096625EF736200EC965D /* ViewController.m */,
-				C2E4FC0A2601F25500861B5F /* WalletWebView.h */,
-				C2E4FC092601F25500861B5F /* WalletWebView.m */,
 				C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */,
 				C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */,
 				C2EB096825EF736200EC965D /* Main.storyboard */,

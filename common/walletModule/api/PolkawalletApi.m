@@ -6,6 +6,7 @@
 //
 
 #import "PolkawalletApi.h"
+#import "NSObject+jsonExtention.h"
 
 @interface PolkawalletApi ()
 
@@ -43,8 +44,26 @@
         if (data) {
             self.connectedNode = data;
         }
-//        self.keyring
+        [self.keyring updateIndicesMapWithKeyring:keyringStorage addresses:nil];
+        successHandler(data);
     }];
+}
+
+- (void)subscribeMessageWithJSCall:(NSString *)JSCall
+                            params:(NSMutableArray *)params
+                           channel:(NSString *)channel
+                          callback:(void (^ _Nullable)(_Nullable id data))callback
+                    successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
+{
+    [self.service.webView subscribeMessageWithCode:[NSString stringWithFormat:@"settings.subscribeMessage(%@, %@, \"%@\")", JSCall, jsonEncodeWithValue(params), channel]
+                                           channel:channel
+                                          callback:callback
+                                    successHandler:successHandler];
+}
+
+- (void)unsubscribeMessageWithChannel:(NSString *)channel
+{
+    [self.service.webView unsubscribeMessageWithChannel:channel];
 }
 
 @end

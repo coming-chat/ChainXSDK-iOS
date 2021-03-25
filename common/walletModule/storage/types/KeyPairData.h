@@ -7,10 +7,11 @@
 
 #import <Foundation/Foundation.h>
 #import <Mantle/MTLModel.h>
+#import <MTLJSONAdapter.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface KeyPairData : MTLModel
+@interface KeyPairData : MTLModel<MTLJSONSerializing>
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *encoded;
@@ -30,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-@interface SeedBackupData : NSObject
+@interface SeedBackupData : MTLModel
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *seed;
 @property (nonatomic, copy) NSString *error;

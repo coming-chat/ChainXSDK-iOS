@@ -94,6 +94,13 @@
     [self evalJavascriptWithCode:code successHandler:successHandler];
 }
 
+- (void)unsubscribeMessageWithChannel:(NSString *)channel
+{
+    NSLog(@"unsubscribe %@", channel);
+    NSString *unsubCall = [@"unsub" stringByAppendingString:channel];
+    [self.web evaluateJavaScript:[NSString stringWithFormat:@"%@ && %@()", unsubCall, unsubCall] completionHandler:nil];
+}
+
 - (void)addMsgHandlerWithChannel:(NSString *)channel
                        onMessage:(void (^)(_Nullable id data))onMessage
 {

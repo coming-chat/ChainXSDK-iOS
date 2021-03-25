@@ -13,6 +13,12 @@
     return [self handleMethodCall:dict];
 }
 
++ (NSString *)decrypt:(NSString *)base64EncodedString password:(NSString *)password
+{
+    NSDictionary *dict = @{@"method": @"decrypt", @"arguments": @{@"input":base64EncodedString, @"key":password}};
+    return [self handleMethodCall:dict];
+}
+
 + (NSString *)handleMethodCall:(NSDictionary *)call {
 
       NSDictionary *argsMap  = call[@"arguments"];
@@ -89,7 +95,8 @@
 
 
 //字符串加密(16进制)
-+ (NSString *)encyptPKCS5:(NSString *)plainText WithKey:(NSString *)key{
++ (NSString *)encyptPKCS5:(NSString *)plainText WithKey:(NSString *)key
+{
 
     //把string 转NSData
     NSData* data = [plainText dataUsingEncoding:NSUTF8StringEncoding];
@@ -110,7 +117,7 @@
     //解密hex加密的密钥
     char *publicKey = [self convertHexStrToChar:key];
 
-    NSLog(@"vkey->len->%d",strlen(publicKey));
+    NSLog(@"vkey->len->%ld",strlen(publicKey));
 
     //配置CCCrypt
     CCCryptorStatus ccStatus = CCCrypt(kCCEncrypt,
@@ -156,7 +163,7 @@
 
     char *data1 = [self convertHexStrToChar:encryptText];
 
-    int plainTextBufferSize = [encryptText length] / 2 ;
+    int plainTextBufferSize = (int)[encryptText length] / 2 ;
 
     //NSLog(@"data1->plainTextBufferSize->%d",plainTextBufferSize);
 
@@ -192,9 +199,9 @@
 
 + (char *)convertHexStrToChar:(NSString *)hexString {
 
-    int mallocLen = [hexString length] / 2 + 1;
+    int mallocLen = (int)[hexString length] / 2 + 1;
 
-    char *myBuffer = (unsigned char *)malloc(mallocLen);
+    char *myBuffer = (char *)malloc(mallocLen);
 
     memset(myBuffer,'\0',mallocLen);
 
