@@ -131,7 +131,7 @@
     if ([msgDict.allKeys containsObject:@"path"] && [msgDict.allKeys containsObject:@"data"]) {
         NSString *path = msgDict[@"path"];
         if (self.msgCompleters[path] != nil) {
-            self.msgCompleters[path](msgDict[@"data"]);
+            if (![msgDict[@"data"] isKindOfClass:NSNull.class]) self.msgCompleters[path](msgDict[@"data"]);
             [self.msgCompleters removeObjectForKey:path];
         }
         if ([self.msgHandlers.allKeys containsObject:@"path"]) {

@@ -6,7 +6,6 @@
 //
 
 #import "ViewController.h"
-//#import "WalletWebView.h"
 #import "WebViewRunner.h"
 #import "Keyring.h"
 #import "WalletSDK.h"
@@ -28,6 +27,8 @@
     
     [self setUI2];
     
+    [self setUI3];
+    
     [self initApi];
 }
 
@@ -43,13 +44,19 @@
 - (void)connect
 {
     NetworkParams *params = [[NetworkParams alloc] init];
-    params.name = @"Kusama";
-    params.endpoint = @"wss://kusama-1.polkawallet.io:9944/";
-    params.ss58 = 2;
+    params.name = @"ChainX";
+    params.endpoint = @"wss://chainx.elara.patract.io";
+    params.ss58 = 44;
+    self.keyring.store.ss58 = (int)params.ss58;
     [self.sdk.service.webView connectNode:@[params] successHandler:^(id  _Nullable data) {
         NSLog(@"data == %@", data);
         
     }];
+    
+//    [self.sdk.service.webView evalJavascriptWithCode:@"runAccountTest()" successHandler:^(id  _Nullable data) {
+//        NSLog(@"%@", data);
+//
+//    }];
 }
 
 - (void)importAccount
@@ -80,20 +87,46 @@
 //
 //    }];
     //keystore
-//    NSString *testJson = @"{\"pubKey\":\"0xa2d1d33cc490d34ccc6938f8b30430428da815a85bf5927adc85d9e27cbbfc1a\",\"address\":\"14gV68QsGAEUGkcuV5JA1hx2ZFTuKJthMFfnkDyLMZyn8nnb\",\"encoded\":\"G3BHvs9tVTSf1Qe02bcOGpj7vjLdgqyS+/s0/J3EfRMAgAAAAQAAAAgAAADpWTEOs5/06DmEZaeuoExpf9+y1xcUhIzmEr6dUxyl67VQRX2KNGVmTqq05/sEIUDPVeOqqLbjBEPaNRoC0lZTQlKM5u38lX4PzKivGHM9ZJkvtQxf7RAndN/vgfIX4X76gX60bqrUY8Qr2ZswtuPTeGVKQOD7y0GtoPOcR2RzFg6rs44NuugTR0UwA8HWTDkh0c/KOnUc1FJDb4rV\",\"encoding\":{\"content\":[\"pkcs8\",\"sr25519\"],\"type\":[\"scrypt\",\"xsalsa20-poly1305\"],\"version\":\"3\"},\"meta\": {\"name\":\"testName-3\",\"whenCreated\": 1598270113026,\"whenEdited\": 1598270113026}}";
-//    [self.sdk.api.keyring importAccountWithKeyType:keystore
-//                                               key:testJson
-//                                              name:@"testName03"
-//                                          password:@"a123456"
-//                                    successHandler:^(id  _Nullable data) {
-//        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.keyring
-//                                                           keyType:@"mnemonic"
-//                                                               acc:data
-//                                                          password:@"a123456"];
-//
-//    } failureHandler:^(id  _Nullable data) {
+    //@"{\"address\":\"5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn\",\"encoded\":\"6FOybGePm0IJGY613kFYQxinQ7cWS9CHB3gH30wJn6AAgAAAAQAAAAgAAABKP9Nfa4Jm1V2Ykd0zyFxHWFt1AJcOQ6GCkakbzhX18+YL7C0aMpr+EH4IzJN5eGnUYtaCaPXZgMth05HtAxp0oCkCIfiYeyGtD8d3hePEmf4gPzD7G8luB5IE+eOSsT7NTm3iGZTvyrYYpts2i2Zu0bR98VLW9bPtycUdtbgyaIkYr++j6pD500TeUAabreWZn/uxJeDIuLVYJNcR\",\"encoding\":{\"content\":[\"pkcs8\",\"sr25519\"],\"type\":[\"scrypt\",\"xsalsa20-poly1305\"],\"version\":\"3\"},\"meta\":{\"genesisHash\":\"0x012cfb6997279fed8ff754a5a90cb30627c70fcdd79ee9c480bcef07de754810\",\"name\":\"test-comon2\",\"tags\":[],\"whenCreated\":1616746198186}}"
+    //@"{\"address\":\"5TffWUUbpKS2TkUviz5aZEbNAyJtH8MEaG5mkvXahhQtUz9b\",\"encoded\":\"UIMvI/mr3zDRTSpdvPX9VSshytEmnTu7VuNfFGjS3swAgAAAAQAAAAgAAAD2UbLd9yiBz8Zmig8A6OnA29xjrPR1IwpacKZ129dVUnVd5NOdGXqJOMzgqkIERDCvo5e/6XVGYyaihipQxa6epIO+kLEO35UkxetNYw2BR2e6g1rlGNz2YaNPnsiLQembg4cCKAcG1zJRUN2+5+XEuXxyNuYL297o/CkDsz8FaPzhtu4p3CCMczVICRX5CrRFeimUlY70vYDbw1CV\",\"encoding\":{\"content\":[\"pkcs8\",\"sr25519\"],\"type\":[\"scrypt\",\"xsalsa20-poly1305\"],\"version\":\"3\"},\"meta\":{\"genesisHash\":\"0x012cfb6997279fed8ff754a5a90cb30627c70fcdd79ee9c480bcef07de754810\",\"name\":\"LittleMonster\",\"tags\":[],\"whenCreated\":1614670970208}}"
+    NSString *testJson = @"{\"address\":\"5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn\",\"encoded\":\"6FOybGePm0IJGY613kFYQxinQ7cWS9CHB3gH30wJn6AAgAAAAQAAAAgAAABKP9Nfa4Jm1V2Ykd0zyFxHWFt1AJcOQ6GCkakbzhX18+YL7C0aMpr+EH4IzJN5eGnUYtaCaPXZgMth05HtAxp0oCkCIfiYeyGtD8d3hePEmf4gPzD7G8luB5IE+eOSsT7NTm3iGZTvyrYYpts2i2Zu0bR98VLW9bPtycUdtbgyaIkYr++j6pD500TeUAabreWZn/uxJeDIuLVYJNcR\",\"encoding\":{\"content\":[\"pkcs8\",\"sr25519\"],\"type\":[\"scrypt\",\"xsalsa20-poly1305\"],\"version\":\"3\"},\"meta\":{\"genesisHash\":\"0x012cfb6997279fed8ff754a5a90cb30627c70fcdd79ee9c480bcef07de754810\",\"name\":\"test-comon2\",\"tags\":[],\"whenCreated\":1616746198186}}";
+    [self.sdk.api.keyring importAccountWithKeyType:keystore
+                                               key:testJson
+                                              name:@"mytest-coming"
+                                          password:@"1"
+                                    successHandler:^(id  _Nullable data) {
+        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.keyring
+                                                           keyType:@"mnemonic"
+                                                               acc:data
+                                                          password:@"1"];
+
+    } failureHandler:^(id  _Nullable data) {
+
+    }];
+}
+
+- (void)transfer
+{
+//    [self.sdk.api.tx estimateFeesWithTxInfo:@{}.mutableCopy
+//                                     params:@[].mutableCopy
+//                                   rawParam:nil
+//                             successHandler:^(NSMutableDictionary * _Nonnull data) {
 //
 //    }];
+    //0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217
+    [self.sdk.api.tx signAndSendWithTxInfo:@{@"module":@"balances", @"call":@"transfer", @"sender":@{@"address":@"5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn", @"pubKey":@"0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217"}}.mutableCopy
+                                    params:@[@"5TffWUUbpKS2TkUviz5aZEbNAyJtH8MEaG5mkvXahhQtUz9b", @"1"].mutableCopy
+                                  password:@"1"
+                            onStatusChange:^(id  _Nullable data) {
+        
+    }
+                                  rawParam:nil
+                            successHandler:^(NSMutableDictionary * _Nonnull data) {
+        
+    }
+                            failureHandler:^(NSString * _Nonnull error) {
+        
+    }];
 }
 
 - (void)setUI
@@ -110,9 +143,19 @@
 {
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(100, 300, 200, 100);
-    [button setTitle:@"导入账号通过助记词" forState:UIControlStateNormal];
+    [button setTitle:@"导入账号" forState:UIControlStateNormal];
     [button setBackgroundColor:[UIColor redColor]];
     [button addTarget:self action:@selector(importAccount) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:button];
+}
+
+- (void)setUI3
+{
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(100, 500, 200, 100);
+    [button setTitle:@"转账" forState:UIControlStateNormal];
+    [button setBackgroundColor:[UIColor redColor]];
+    [button addTarget:self action:@selector(transfer) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
 }
 

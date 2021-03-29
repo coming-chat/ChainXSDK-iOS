@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Estimate tx fees, [params] will be ignored if we have [rawParam].
 - (void)estimateFeesWithTxInfo:(NSMutableDictionary *)txInfo
                         params:(NSMutableArray *)params
-                      rawParam:(NSString *)rawParam
+                      rawParam:(nullable NSString *)rawParam
                 successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler;
 
 // Send tx, [params] will be ignored if we have [rawParam].
@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
                        params:(NSMutableArray *)params
                      password:(NSString *)password
                onStatusChange:(void (^ _Nullable)(_Nullable id data))onStatusChange
-                     rawParam:(NSString *)rawParam
+                     rawParam:(nullable NSString *)rawParam
                successHandler:(void (^ _Nullable)(NSMutableDictionary *data))successHandler
                failureHandler:(void (^ _Nullable)(NSString *error))failureHandler;
 

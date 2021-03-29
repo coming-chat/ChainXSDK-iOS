@@ -14,6 +14,8 @@
 		C233EDC7260B4348005243BA /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDC3260B4348005243BA /* AESCrypt.m */; };
 		C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; };
 		C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C255B735260DC5BB005AB9DD /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C255B734260DC5BB005AB9DD /* main.js */; };
+		C255B739260DCAE0005AB9DD /* PolkawalletPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C255B738260DCAE0005AB9DD /* PolkawalletPlugin.m */; };
 		C2721D89260989A70078099F /* NSObject+jsonExtention.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D88260989A70078099F /* NSObject+jsonExtention.m */; };
 		C2721D912609EEC00078099F /* ApiAccount.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D902609EEC00078099F /* ApiAccount.m */; };
 		C2721D942609EED10078099F /* ApiSetting.m in Sources */ = {isa = PBXBuildFile; fileRef = C2721D932609EED10078099F /* ApiSetting.m */; };
@@ -36,7 +38,6 @@
 		C2AF0D3426034C8800310BA1 /* KeyringStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = C2AF0D3326034C8800310BA1 /* KeyringStorage.m */; };
 		C2E4FC032601E74E00861B5F /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC002601E74E00861B5F /* index.html */; };
 		C2E4FC042601E74E00861B5F /* test.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC012601E74E00861B5F /* test.js */; };
-		C2E4FC052601E74E00861B5F /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C2E4FC022601E74E00861B5F /* main.js */; };
 		C2E4FC0B2601F25500861B5F /* WalletWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = C2E4FC092601F25500861B5F /* WalletWebView.m */; };
 		C2EB096125EF736200EC965D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096025EF736200EC965D /* AppDelegate.m */; };
 		C2EB096425EF736200EC965D /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C2EB096325EF736200EC965D /* SceneDelegate.m */; };
@@ -73,6 +74,9 @@
 		C233EDC3260B4348005243BA /* AESCrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AESCrypt.m; sourceTree = "<group>"; };
 		C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2451A1E25F601CA007AF229 /* App.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = App.framework; path = ../flutter_module/.ios/Flutter/App.framework; sourceTree = "<group>"; };
+		C255B734260DC5BB005AB9DD /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
+		C255B737260DCAE0005AB9DD /* PolkawalletPlugin.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PolkawalletPlugin.h; sourceTree = "<group>"; };
+		C255B738260DCAE0005AB9DD /* PolkawalletPlugin.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PolkawalletPlugin.m; sourceTree = "<group>"; };
 		C2721D87260989A70078099F /* NSObject+jsonExtention.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+jsonExtention.h"; sourceTree = "<group>"; };
 		C2721D88260989A70078099F /* NSObject+jsonExtention.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+jsonExtention.m"; sourceTree = "<group>"; };
 		C2721D8F2609EEC00078099F /* ApiAccount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApiAccount.h; sourceTree = "<group>"; };
@@ -115,7 +119,6 @@
 		C2AF0D3326034C8800310BA1 /* KeyringStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyringStorage.m; sourceTree = "<group>"; };
 		C2E4FC002601E74E00861B5F /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		C2E4FC012601E74E00861B5F /* test.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = test.js; sourceTree = "<group>"; };
-		C2E4FC022601E74E00861B5F /* main.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = main.js; sourceTree = "<group>"; };
 		C2E4FC092601F25500861B5F /* WalletWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WalletWebView.m; sourceTree = "<group>"; };
 		C2E4FC0A2601F25500861B5F /* WalletWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WalletWebView.h; sourceTree = "<group>"; };
 		C2EB095C25EF736200EC965D /* common.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = common.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -175,6 +178,15 @@
 			path = AesEcbPkcs5;
 			sourceTree = "<group>";
 		};
+		C255B736260DCAD0005AB9DD /* plugin */ = {
+			isa = PBXGroup;
+			children = (
+				C255B737260DCAE0005AB9DD /* PolkawalletPlugin.h */,
+				C255B738260DCAE0005AB9DD /* PolkawalletPlugin.m */,
+			);
+			path = plugin;
+			sourceTree = "<group>";
+		};
 		C28B50D226047B9800245864 /* types */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +206,8 @@
 				C2721D88260989A70078099F /* NSObject+jsonExtention.m */,
 				C2E4FC0A2601F25500861B5F /* WalletWebView.h */,
 				C2E4FC092601F25500861B5F /* WalletWebView.m */,
+				C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */,
+				C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -268,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				C2AF0D1A26020F9C00310BA1 /* api */,
+				C255B736260DCAD0005AB9DD /* plugin */,
 				C2AF0CFD2601F72F00310BA1 /* service */,
 				C2AF0D162602004600310BA1 /* storage */,
 				C28B50DD2608347B00245864 /* utils */,
@@ -305,16 +320,14 @@
 				C2EB096325EF736200EC965D /* SceneDelegate.m */,
 				C2EB096525EF736200EC965D /* ViewController.h */,
 				C2EB096625EF736200EC965D /* ViewController.m */,
-				C2AF0D282603288A00310BA1 /* WeakScriptMessageDelegate.h */,
-				C2AF0D292603288A00310BA1 /* WeakScriptMessageDelegate.m */,
 				C2EB096825EF736200EC965D /* Main.storyboard */,
 				C2EB096B25EF736200EC965D /* Assets.xcassets */,
 				C2EB096D25EF736200EC965D /* LaunchScreen.storyboard */,
 				C2EB097025EF736200EC965D /* Info.plist */,
 				C2EB097125EF736200EC965D /* main.m */,
 				C2E4FC002601E74E00861B5F /* index.html */,
-				C2E4FC022601E74E00861B5F /* main.js */,
 				C2E4FC012601E74E00861B5F /* test.js */,
+				C255B734260DC5BB005AB9DD /* main.js */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -381,7 +394,7 @@
 				C2E4FC042601E74E00861B5F /* test.js in Resources */,
 				C2EB096F25EF736200EC965D /* LaunchScreen.storyboard in Resources */,
 				C2E4FC032601E74E00861B5F /* index.html in Resources */,
-				C2E4FC052601E74E00861B5F /* main.js in Resources */,
+				C255B735260DC5BB005AB9DD /* main.js in Resources */,
 				C2EB096C25EF736200EC965D /* Assets.xcassets in Resources */,
 				C2EB096A25EF736200EC965D /* Main.storyboard in Resources */,
 			);
@@ -463,6 +476,7 @@
 				C2AF0D1E26020FBD00310BA1 /* NetworkParams.m in Sources */,
 				C2AF0D152601F85200310BA1 /* WebViewRunner.m in Sources */,
 				C2AF0D31260345A700310BA1 /* PolkawalletApi.m in Sources */,
+				C255B739260DCAE0005AB9DD /* PolkawalletPlugin.m in Sources */,
 				C2EB096425EF736200EC965D /* SceneDelegate.m in Sources */,
 				C2AF0D0F2601F82100310BA1 /* ServiceTx.m in Sources */,
 			);
