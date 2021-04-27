@@ -3,18 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		0B046A38FB2FD460EF9BDBDD3902AA48 /* NSObject+MTLComparisonAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B4E4ADCA31F2CE57F6C3F357FDC5427 /* NSObject+MTLComparisonAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0B43196527104EC170B6AED5DB51012F /* NSDictionary+MTLMappingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A2C8CECE5A568161307A5131D01563 /* NSDictionary+MTLMappingAdditions.m */; };
-		16115AC1DA0252BC0E1695DB86835CF4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		12E28D556774A317464A365EBF736613 /* Pods-common-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B000C16D7CCA8036CEFCD7DC2A0C7C91 /* Pods-common-dummy.m */; };
 		2C1FC34CB1D29C51398D5B9EA172C215 /* NSError+MTLModelException.m in Sources */ = {isa = PBXBuildFile; fileRef = A8A1DC7156CB69BEA053773C334F779B /* NSError+MTLModelException.m */; };
 		2CE3C242E488AFD3DA8A81A0C1033C86 /* Mantle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5451C89917B1A87E4B197BAD8F1A6389 /* Mantle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		39CB793D19C9BF50FB3D708DEF930D3A /* MTLReflection.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F87108DF35293EBA70509A4ECDF7457 /* MTLReflection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4BC6F54EE325EC5A956329B2E7C84921 /* MTLValueTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94E5516FA96BFCC34701A2FFDB3B5AB0 /* MTLValueTransformer.m */; };
-		4D8C8F6D7AC43555704588039EECB231 /* Pods-FlutterPluginSignalDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54348DBA46B8143950836FECC10C1F80 /* Pods-FlutterPluginSignalDemo-dummy.m */; };
+		735E9FC6D394CDB8CD60A8B116364227 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		7560408154BC63A6161807D6A8C8D9DA /* MTLEXTKeyPathCoding.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C88B8AFB723156E5046F6F596FE73B /* MTLEXTKeyPathCoding.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		78DACF6C9779D7CFD8BF3857F6D3B0B2 /* NSArray+MTLManipulationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 24871CFC99267A1817890210A89F93B4 /* NSArray+MTLManipulationAdditions.m */; };
 		7B5B1CC7C671B88A69AE20ED67C123F4 /* NSObject+MTLComparisonAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E333C35790F14DED540D5DE9749A11 /* NSObject+MTLComparisonAdditions.m */; };
@@ -23,8 +23,8 @@
 		8ABB929C4FAB1D60F6E48E9BDB6ABDF0 /* NSDictionary+MTLManipulationAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CB3FEA07C82473C704B1A399CB0DF7F8 /* NSDictionary+MTLManipulationAdditions.m */; };
 		8B7EEFE1DE614855CD2E23441799EEDC /* NSDictionary+MTLManipulationAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D30CB1E4F435EDCFABC01082AF5D03FD /* NSDictionary+MTLManipulationAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B8B3A185A0DAC938A2590AB6F8AAF05 /* NSValueTransformer+MTLPredefinedTransformerAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = D6BC1B02D3A6EDCAD0F2EBEA42149C2D /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		92B315BFF220626A6A3AC0DB0CDE43F8 /* Pods-FlutterPluginSignalDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BB53338F2FB59F3904F782B454D832A4 /* Pods-FlutterPluginSignalDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		984FF08843E712207C3D85F48393D8CF /* MTLJSONAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = BA766C7D8456DDDFC8A520C6874ABBBA /* MTLJSONAdapter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9939E9ABCBBF54F0C075184DF9C94B48 /* Pods-common-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E4FE27EDCA637B2179ECB1089D5C5483 /* Pods-common-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1E916E5043F6715087EB95CA2F502F4 /* MTLReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C500746B70D81E1886DD04E13CD4B0D /* MTLReflection.m */; };
 		AD7E3E3013411558C3F57DAC44CB5D62 /* NSDictionary+MTLMappingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 1D7DBAD2A6E0ABC58688E15E3DC1E78E /* NSDictionary+MTLMappingAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4E8C5E2D92C7A313F2574770E5B0DF8 /* MTLModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 49734D2BC232E48600BD0EC1D81CA78F /* MTLModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,7 +51,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8CF45B219A6C4C416F827A8330B4252C /* PBXContainerItemProxy */ = {
+		19DE6E04E5F32BF0BDCC92F910056C66 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -66,64 +66,64 @@
 		01A2C8CECE5A568161307A5131D01563 /* NSDictionary+MTLMappingAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLMappingAdditions.m"; path = "Mantle/NSDictionary+MTLMappingAdditions.m"; sourceTree = "<group>"; };
 		0254421890D2CF7A60C21F034AA0AC9E /* MTLModel+NSCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTLModel+NSCoding.h"; path = "Mantle/include/MTLModel+NSCoding.h"; sourceTree = "<group>"; };
 		06C8BC07059F4629901299A4A09F42E4 /* MTLEXTRuntimeExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLEXTRuntimeExtensions.m; path = Mantle/extobjc/MTLEXTRuntimeExtensions.m; sourceTree = "<group>"; };
-		074A785A28244B0E4ADD7B0BC3187ABB /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		07E333C35790F14DED540D5DE9749A11 /* NSObject+MTLComparisonAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSObject+MTLComparisonAdditions.m"; path = "Mantle/NSObject+MTLComparisonAdditions.m"; sourceTree = "<group>"; };
 		0EBCEBE68E7C1722FC72DC1D510A4925 /* NSError+MTLModelException.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSError+MTLModelException.h"; path = "Mantle/NSError+MTLModelException.h"; sourceTree = "<group>"; };
-		0FFE4A7D4D797CAAB6098AF937006AEE /* Pods-FlutterPluginSignalDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlutterPluginSignalDemo.release.xcconfig"; sourceTree = "<group>"; };
+		1864678E865914D629BD4B328BFC96C0 /* Pods-common.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-common.modulemap"; sourceTree = "<group>"; };
 		1B0E299AADD37EA2725BEB65347EBB0E /* Mantle-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Mantle-dummy.m"; sourceTree = "<group>"; };
 		1D7DBAD2A6E0ABC58688E15E3DC1E78E /* NSDictionary+MTLMappingAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLMappingAdditions.h"; path = "Mantle/include/NSDictionary+MTLMappingAdditions.h"; sourceTree = "<group>"; };
 		215A1EF1492799969283D82601300C98 /* MTLModel+NSCoding.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "MTLModel+NSCoding.m"; path = "Mantle/MTLModel+NSCoding.m"; sourceTree = "<group>"; };
 		23755A1D357B8BBE09EF48FDEB1DAD34 /* MTLEXTRuntimeExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLEXTRuntimeExtensions.h; path = Mantle/extobjc/include/MTLEXTRuntimeExtensions.h; sourceTree = "<group>"; };
 		24871CFC99267A1817890210A89F93B4 /* NSArray+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+MTLManipulationAdditions.m"; path = "Mantle/NSArray+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
-		28D87D6E5FCE0E9B3941673BCD36945A /* Pods-FlutterPluginSignalDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FlutterPluginSignalDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		2DE034A23841B6467FF977E8CA4BFB7A /* Mantle.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Mantle.modulemap; sourceTree = "<group>"; };
 		2F87108DF35293EBA70509A4ECDF7457 /* MTLReflection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLReflection.h; path = Mantle/MTLReflection.h; sourceTree = "<group>"; };
-		30040A545A0989C5D2ED9DABB5710DEE /* Pods-FlutterPluginSignalDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlutterPluginSignalDemo.modulemap"; sourceTree = "<group>"; };
-		3496D1C726A785BFAE9BB9EEBD2DFF80 /* Pods-FlutterPluginSignalDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlutterPluginSignalDemo-acknowledgements.plist"; sourceTree = "<group>"; };
 		3C500746B70D81E1886DD04E13CD4B0D /* MTLReflection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLReflection.m; path = Mantle/MTLReflection.m; sourceTree = "<group>"; };
 		3CDE00F56D0286BA2372EE2BC181B0AA /* Mantle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Mantle.release.xcconfig; sourceTree = "<group>"; };
+		3E5D8AE904532132F892715AE9F6A074 /* Pods_common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_common.framework; path = "Pods-common.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C88B8AFB723156E5046F6F596FE73B /* MTLEXTKeyPathCoding.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLEXTKeyPathCoding.h; path = Mantle/extobjc/include/MTLEXTKeyPathCoding.h; sourceTree = "<group>"; };
 		48EA9751C62E914F2F4EF40DE35B3534 /* MTLModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLModel.m; path = Mantle/MTLModel.m; sourceTree = "<group>"; };
 		49734D2BC232E48600BD0EC1D81CA78F /* MTLModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLModel.h; path = Mantle/include/MTLModel.h; sourceTree = "<group>"; };
 		51FA979BC4F73C7DB00098F9633515F7 /* NSValueTransformer+MTLInversionAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLInversionAdditions.h"; path = "Mantle/include/NSValueTransformer+MTLInversionAdditions.h"; sourceTree = "<group>"; };
-		54348DBA46B8143950836FECC10C1F80 /* Pods-FlutterPluginSignalDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FlutterPluginSignalDemo-dummy.m"; sourceTree = "<group>"; };
 		5451C89917B1A87E4B197BAD8F1A6389 /* Mantle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Mantle.h; path = Mantle/include/Mantle.h; sourceTree = "<group>"; };
 		561BA356D968EEE1892415632C82E643 /* Mantle-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mantle-prefix.pch"; sourceTree = "<group>"; };
 		641189108180E443808B508CED964DF6 /* MTLJSONAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLJSONAdapter.m; path = Mantle/MTLJSONAdapter.m; sourceTree = "<group>"; };
 		6668BF89F3303D18D2768C047B803C1A /* Mantle-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Mantle-umbrella.h"; sourceTree = "<group>"; };
 		66C0A2E4C97D949B007E795D8036F445 /* MTLEXTScope.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLEXTScope.h; path = Mantle/extobjc/include/MTLEXTScope.h; sourceTree = "<group>"; };
-		6BCD3E077861DE8917A0FFFBC6BD96CF /* Mantle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mantle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6BCD3E077861DE8917A0FFFBC6BD96CF /* Mantle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Mantle.framework; path = Mantle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F569EF33ED1B4D33C85C09994782156 /* Pods-common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-common.release.xcconfig"; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		75F4CB01F982FF15EB4D853FA085C3C4 /* NSDictionary+MTLJSONKeyPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLJSONKeyPath.h"; path = "Mantle/NSDictionary+MTLJSONKeyPath.h"; sourceTree = "<group>"; };
 		767D8E6964C8B413A032CE5C037BA23F /* MTLEXTScope.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLEXTScope.m; path = Mantle/extobjc/MTLEXTScope.m; sourceTree = "<group>"; };
 		7B4E4ADCA31F2CE57F6C3F357FDC5427 /* NSObject+MTLComparisonAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSObject+MTLComparisonAdditions.h"; path = "Mantle/include/NSObject+MTLComparisonAdditions.h"; sourceTree = "<group>"; };
 		86E28EFA5E4DAE3C30C095166827DAF8 /* MTLValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLValueTransformer.h; path = Mantle/include/MTLValueTransformer.h; sourceTree = "<group>"; };
 		94E5516FA96BFCC34701A2FFDB3B5AB0 /* MTLValueTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTLValueTransformer.m; path = Mantle/MTLValueTransformer.m; sourceTree = "<group>"; };
-		952DFABBDEF3BF6B1F7360C036B4EC27 /* Pods-FlutterPluginSignalDemo-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlutterPluginSignalDemo-Info.plist"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2ED967C0AB5918B3350D5BF5AEB4B0B /* NSDictionary+MTLJSONKeyPath.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLJSONKeyPath.m"; path = "Mantle/NSDictionary+MTLJSONKeyPath.m"; sourceTree = "<group>"; };
 		A8A1DC7156CB69BEA053773C334F779B /* NSError+MTLModelException.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSError+MTLModelException.m"; path = "Mantle/NSError+MTLModelException.m"; sourceTree = "<group>"; };
+		B000C16D7CCA8036CEFCD7DC2A0C7C91 /* Pods-common-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-common-dummy.m"; sourceTree = "<group>"; };
 		B0D80B6027D220688CF47E4038128AA1 /* Mantle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Mantle.debug.xcconfig; sourceTree = "<group>"; };
 		BA766C7D8456DDDFC8A520C6874ABBBA /* MTLJSONAdapter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLJSONAdapter.h; path = Mantle/include/MTLJSONAdapter.h; sourceTree = "<group>"; };
-		BB53338F2FB59F3904F782B454D832A4 /* Pods-FlutterPluginSignalDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FlutterPluginSignalDemo-umbrella.h"; sourceTree = "<group>"; };
 		BBC5D769089FEC654E8E58802E4F5A8F /* NSValueTransformer+MTLInversionAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLInversionAdditions.m"; path = "Mantle/NSValueTransformer+MTLInversionAdditions.m"; sourceTree = "<group>"; };
+		C445706EB033BBCD8E573740B7F0D1D4 /* Pods-common-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-common-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C9C906F280898FDA3E0F5414F86A4300 /* MTLMetamacros.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLMetamacros.h; path = Mantle/extobjc/include/MTLMetamacros.h; sourceTree = "<group>"; };
-		CA310635D8E4545F27F659CEBB58578A /* Pods-FlutterPluginSignalDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlutterPluginSignalDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
-		CA35626D1341D8259C8D4125EDA6A8CA /* Pods-FlutterPluginSignalDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FlutterPluginSignalDemo-frameworks.sh"; sourceTree = "<group>"; };
 		CB3FEA07C82473C704B1A399CB0DF7F8 /* NSDictionary+MTLManipulationAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+MTLManipulationAdditions.m"; path = "Mantle/NSDictionary+MTLManipulationAdditions.m"; sourceTree = "<group>"; };
+		D08BFAFE2C939A219EA56701376A65A1 /* Pods-common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-common.debug.xcconfig"; sourceTree = "<group>"; };
 		D30CB1E4F435EDCFABC01082AF5D03FD /* NSDictionary+MTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+MTLManipulationAdditions.h"; path = "Mantle/include/NSDictionary+MTLManipulationAdditions.h"; sourceTree = "<group>"; };
 		D6BC1B02D3A6EDCAD0F2EBEA42149C2D /* NSValueTransformer+MTLPredefinedTransformerAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.h"; path = "Mantle/include/NSValueTransformer+MTLPredefinedTransformerAdditions.h"; sourceTree = "<group>"; };
+		D894D655F955F106E6E2815E68E11032 /* Pods-common-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-common-Info.plist"; sourceTree = "<group>"; };
 		DE0902A6B227D24E1D595E1E855ED3BF /* MTLTransformerErrorHandling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTLTransformerErrorHandling.h; path = Mantle/include/MTLTransformerErrorHandling.h; sourceTree = "<group>"; };
+		E4FE27EDCA637B2179ECB1089D5C5483 /* Pods-common-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-common-umbrella.h"; sourceTree = "<group>"; };
+		E6270393B54268D5A891FF34A7EC7AFE /* Pods-common-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-common-frameworks.sh"; sourceTree = "<group>"; };
 		EAF9F4C8038458AC18D9E6FD6612EFD8 /* NSValueTransformer+MTLPredefinedTransformerAdditions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSValueTransformer+MTLPredefinedTransformerAdditions.m"; path = "Mantle/NSValueTransformer+MTLPredefinedTransformerAdditions.m"; sourceTree = "<group>"; };
 		FDF1AEFDC41CCA8569A90EC8B15B2CCA /* NSArray+MTLManipulationAdditions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+MTLManipulationAdditions.h"; path = "Mantle/include/NSArray+MTLManipulationAdditions.h"; sourceTree = "<group>"; };
+		FE8D72D236925BB4D88F8170A1CB232A /* Pods-common-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-common-acknowledgements.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		46632B67E1A89B424739E4BC8FC75C58 /* Frameworks */ = {
+		4996695ABABEE7CBA845A2D8AFA46B7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16115AC1DA0252BC0E1695DB86835CF4 /* Foundation.framework in Frameworks */,
+				735E9FC6D394CDB8CD60A8B116364227 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,38 +138,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		042119DF7EC5E6A7F324127C1901E078 /* Targets Support Files */ = {
+		444DC11CA0A335EE812C88BAF846D0E4 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				46E610B5743492A39E1FB1EC2F94C07F /* Pods-FlutterPluginSignalDemo */,
+				FCD7638A385FB5DBDBD8CF3B55597AB2 /* Pods-common */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		31E5161DBDD1E9785F4499283990CEDD /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				6BCD3E077861DE8917A0FFFBC6BD96CF /* Mantle.framework */,
-				074A785A28244B0E4ADD7B0BC3187ABB /* Pods_FlutterPluginSignalDemo.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		46E610B5743492A39E1FB1EC2F94C07F /* Pods-FlutterPluginSignalDemo */ = {
-			isa = PBXGroup;
-			children = (
-				30040A545A0989C5D2ED9DABB5710DEE /* Pods-FlutterPluginSignalDemo.modulemap */,
-				CA310635D8E4545F27F659CEBB58578A /* Pods-FlutterPluginSignalDemo-acknowledgements.markdown */,
-				3496D1C726A785BFAE9BB9EEBD2DFF80 /* Pods-FlutterPluginSignalDemo-acknowledgements.plist */,
-				54348DBA46B8143950836FECC10C1F80 /* Pods-FlutterPluginSignalDemo-dummy.m */,
-				CA35626D1341D8259C8D4125EDA6A8CA /* Pods-FlutterPluginSignalDemo-frameworks.sh */,
-				952DFABBDEF3BF6B1F7360C036B4EC27 /* Pods-FlutterPluginSignalDemo-Info.plist */,
-				BB53338F2FB59F3904F782B454D832A4 /* Pods-FlutterPluginSignalDemo-umbrella.h */,
-				28D87D6E5FCE0E9B3941673BCD36945A /* Pods-FlutterPluginSignalDemo.debug.xcconfig */,
-				0FFE4A7D4D797CAAB6098AF937006AEE /* Pods-FlutterPluginSignalDemo.release.xcconfig */,
-			);
-			name = "Pods-FlutterPluginSignalDemo";
-			path = "Target Support Files/Pods-FlutterPluginSignalDemo";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -215,6 +189,7 @@
 				F132117B2DEFC749AA2F722D44C5188A /* extobjc */,
 				E0D15043F084D2487B44DB3495ABF33A /* Support Files */,
 			);
+			name = Mantle;
 			path = Mantle;
 			sourceTree = "<group>";
 		};
@@ -224,8 +199,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
 				E7EA04E37E0502169BAB3050B9FBA26F /* Pods */,
-				31E5161DBDD1E9785F4499283990CEDD /* Products */,
-				042119DF7EC5E6A7F324127C1901E078 /* Targets Support Files */,
+				F90E8A1CDF9C5B6AA3B28F8C25BE99B4 /* Products */,
+				444DC11CA0A335EE812C88BAF846D0E4 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
@@ -273,6 +248,32 @@
 			name = extobjc;
 			sourceTree = "<group>";
 		};
+		F90E8A1CDF9C5B6AA3B28F8C25BE99B4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6BCD3E077861DE8917A0FFFBC6BD96CF /* Mantle.framework */,
+				3E5D8AE904532132F892715AE9F6A074 /* Pods_common.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FCD7638A385FB5DBDBD8CF3B55597AB2 /* Pods-common */ = {
+			isa = PBXGroup;
+			children = (
+				1864678E865914D629BD4B328BFC96C0 /* Pods-common.modulemap */,
+				C445706EB033BBCD8E573740B7F0D1D4 /* Pods-common-acknowledgements.markdown */,
+				FE8D72D236925BB4D88F8170A1CB232A /* Pods-common-acknowledgements.plist */,
+				B000C16D7CCA8036CEFCD7DC2A0C7C91 /* Pods-common-dummy.m */,
+				E6270393B54268D5A891FF34A7EC7AFE /* Pods-common-frameworks.sh */,
+				D894D655F955F106E6E2815E68E11032 /* Pods-common-Info.plist */,
+				E4FE27EDCA637B2179ECB1089D5C5483 /* Pods-common-umbrella.h */,
+				D08BFAFE2C939A219EA56701376A65A1 /* Pods-common.debug.xcconfig */,
+				6F569EF33ED1B4D33C85C09994782156 /* Pods-common.release.xcconfig */,
+			);
+			name = "Pods-common";
+			path = "Target Support Files/Pods-common";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -303,11 +304,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		557E9068D1E61D3FA50C876B587AB184 /* Headers */ = {
+		5B93C03BD62EF29C7B6E929D9326E944 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B315BFF220626A6A3AC0DB0CDE43F8 /* Pods-FlutterPluginSignalDemo-umbrella.h in Headers */,
+				9939E9ABCBBF54F0C075184DF9C94B48 /* Pods-common-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,23 +333,23 @@
 			productReference = 6BCD3E077861DE8917A0FFFBC6BD96CF /* Mantle.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FAD290A3273EE712580196686728FABA /* Pods-FlutterPluginSignalDemo */ = {
+		97A83D40EEBAD7393CAA15FB293D6157 /* Pods-common */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4779D532DA1270B47F5BEA9DCED40AF5 /* Build configuration list for PBXNativeTarget "Pods-FlutterPluginSignalDemo" */;
+			buildConfigurationList = 8EC52737C01BC7DD418D3935E1C1119E /* Build configuration list for PBXNativeTarget "Pods-common" */;
 			buildPhases = (
-				557E9068D1E61D3FA50C876B587AB184 /* Headers */,
-				3CA2A9EBFB00BAE12E60C6709992E596 /* Sources */,
-				46632B67E1A89B424739E4BC8FC75C58 /* Frameworks */,
-				E7B8C33EC815A4B0ADCE24BC7E34A44E /* Resources */,
+				5B93C03BD62EF29C7B6E929D9326E944 /* Headers */,
+				634F47E204E628973F3D079763A4079F /* Sources */,
+				4996695ABABEE7CBA845A2D8AFA46B7F /* Frameworks */,
+				DD22F8AA1D1F32464B1940C5F4939D1E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				BB488591A6AE2A0B88E86FD160755885 /* PBXTargetDependency */,
+				3DD644270DC61C76B750E80D42546C66 /* PBXTargetDependency */,
 			);
-			name = "Pods-FlutterPluginSignalDemo";
-			productName = "Pods-FlutterPluginSignalDemo";
-			productReference = 074A785A28244B0E4ADD7B0BC3187ABB /* Pods_FlutterPluginSignalDemo.framework */;
+			name = "Pods-common";
+			productName = "Pods-common";
+			productReference = 3E5D8AE904532132F892715AE9F6A074 /* Pods_common.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -358,10 +359,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1100;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -369,12 +370,12 @@
 				Base,
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
-			productRefGroup = 31E5161DBDD1E9785F4499283990CEDD /* Products */;
+			productRefGroup = F90E8A1CDF9C5B6AA3B28F8C25BE99B4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				47CCF1D9F019FFC6546DA481B71A2C4E /* Mantle */,
-				FAD290A3273EE712580196686728FABA /* Pods-FlutterPluginSignalDemo */,
+				97A83D40EEBAD7393CAA15FB293D6157 /* Pods-common */,
 			);
 		};
 /* End PBXProject section */
@@ -387,7 +388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7B8C33EC815A4B0ADCE24BC7E34A44E /* Resources */ = {
+		DD22F8AA1D1F32464B1940C5F4939D1E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -397,11 +398,11 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		3CA2A9EBFB00BAE12E60C6709992E596 /* Sources */ = {
+		634F47E204E628973F3D079763A4079F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D8C8F6D7AC43555704588039EECB231 /* Pods-FlutterPluginSignalDemo-dummy.m in Sources */,
+				12E28D556774A317464A365EBF736613 /* Pods-common-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,53 +433,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BB488591A6AE2A0B88E86FD160755885 /* PBXTargetDependency */ = {
+		3DD644270DC61C76B750E80D42546C66 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = Mantle;
 			target = 47CCF1D9F019FFC6546DA481B71A2C4E /* Mantle */;
-			targetProxy = 8CF45B219A6C4C416F827A8330B4252C /* PBXContainerItemProxy */;
+			targetProxy = 19DE6E04E5F32BF0BDCC92F910056C66 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		38318B2E129BD90CA3B6C71CB9891E24 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FFE4A7D4D797CAAB6098AF937006AEE /* Pods-FlutterPluginSignalDemo.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		71243899B61152433AAE34EE86456EE7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -622,7 +585,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Mantle/Mantle-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Mantle/Mantle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -655,7 +618,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/Mantle/Mantle-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/Mantle/Mantle-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -674,9 +637,9 @@
 			};
 			name = Release;
 		};
-		D48DD960EEF9A87054248159AE048567 /* Debug */ = {
+		B988BCA365F3961F9CF69E5E6745486F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 28D87D6E5FCE0E9B3941673BCD36945A /* Pods-FlutterPluginSignalDemo.debug.xcconfig */;
+			baseConfigurationReference = D08BFAFE2C939A219EA56701376A65A1 /* Pods-common.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -688,7 +651,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-common/Pods-common-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -697,7 +660,7 @@
 					"@loader_path/Frameworks",
 				);
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-common/Pods-common.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
@@ -711,18 +674,47 @@
 			};
 			name = Debug;
 		};
+		F29961F6B6661EBAD19F47AD4E8A084B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F569EF33ED1B4D33C85C09994782156 /* Pods-common.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-common/Pods-common-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-common/Pods-common.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4779D532DA1270B47F5BEA9DCED40AF5 /* Build configuration list for PBXNativeTarget "Pods-FlutterPluginSignalDemo" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D48DD960EEF9A87054248159AE048567 /* Debug */,
-				38318B2E129BD90CA3B6C71CB9891E24 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -737,6 +729,15 @@
 			buildConfigurations = (
 				8236FB0224F28517A28A8BB117125DD8 /* Debug */,
 				B546F71A7DFD6B073532B2324BC0AD6B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8EC52737C01BC7DD418D3935E1C1119E /* Build configuration list for PBXNativeTarget "Pods-common" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B988BCA365F3961F9CF69E5E6745486F /* Debug */,
+				F29961F6B6661EBAD19F47AD4E8A084B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

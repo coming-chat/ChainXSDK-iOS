@@ -26,7 +26,7 @@
 {
     [self.service importAccountWithKeyType:keyType key:key name:name password:password successHandler:^(id  _Nullable data) {
         if (!data) {
-            successHandler(nil);
+            failureHandler(nil);
         }else{
             if ([((NSMutableDictionary *)data).allKeys containsObject:@"error"]) {
                 if (data[@"error"]) {
@@ -41,9 +41,9 @@
 
 // Add account to local storage.
 - (NSMutableDictionary *)addAccountWithKeyring:(Keyring *)keyring
-                                keyType:(NSString *)keyType
-                                    acc:(NSMutableDictionary *)acc
-                               password:(NSString *)password
+                                       keyType:(NSString *)keyType
+                                           acc:(NSMutableDictionary *)acc
+                                      password:(NSString *)password
 {
     // save seed and remove it before add account
     if ([keyType isEqualToString:@"mnemonic"] || [keyType isEqualToString:@"rawSeed"]) {

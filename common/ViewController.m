@@ -6,13 +6,12 @@
 //
 
 #import "ViewController.h"
-#import "WebViewRunner.h"
-#import "Keyring.h"
 #import "WalletSDK.h"
+#import <MTLJSONAdapter.h>
+#import "NSObject+jsonExtention.h"
 
-@interface ViewController ()<WKNavigationDelegate>
+@interface ViewController ()<WKNavigationDelegate, UIDocumentPickerDelegate>
 @property (nonatomic, strong) WalletSDK *sdk;
-@property (nonatomic, strong) Keyring *keyring;
 
 @property (nonatomic, strong) NSDictionary *testAcc;
 
@@ -36,27 +35,27 @@
 
 - (void)initApi
 {
-    self.keyring = [[Keyring alloc] init];
-    self.sdk = [[WalletSDK alloc] initWithKeyring:self.keyring webViewRunner:nil jsCode:nil];
-    
+    self.sdk = [WalletSDK shareInstance];
 }
 
 - (void)connect
 {
-    NetworkParams *params = [[NetworkParams alloc] init];
-    params.name = @"ChainX";
-    params.endpoint = @"wss://chainx.elara.patract.io";
-    params.ss58 = 44;
-    self.keyring.store.ss58 = (int)params.ss58;
-    [self.sdk.service.webView connectNode:@[params] successHandler:^(id  _Nullable data) {
-        NSLog(@"data == %@", data);
-        
-    }];
+//    NetworkParams *params = [[NetworkParams alloc] init];
+//    params.name = @"ChainX";
+//    params.endpoint = @"wss://chainx.elara.patract.io";
+//    params.ss58 = 44;
+//    self.sdk.keyring.store.ss58 = (int)params.ss58;
+//    [self.sdk.service.webView connectNode:@[params] successHandler:^(id  _Nullable data) {
+//        NSLog(@"data == %@", data);
+//
+//    }];
     
 //    [self.sdk.service.webView evalJavascriptWithCode:@"runAccountTest()" successHandler:^(id  _Nullable data) {
 //        NSLog(@"%@", data);
 //
 //    }];
+    [[WalletSDK shareInstance].keyring.store resetStore];
+    
 }
 
 - (void)importAccount
@@ -67,7 +66,7 @@
 //                                              name:@"testName01"
 //                                          password:@"a123456"
 //                                    successHandler:^(id  _Nullable data) {
-//        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.keyring keyType:@"mnemonic" acc:data password:@"a123456"];
+//        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.sdk.keyring keyType:@"mnemonic" acc:data password:@"a123456"];
 //
 //    } failureHandler:^(id  _Nullable data) {
 //
@@ -95,7 +94,7 @@
                                               name:@"mytest-coming"
                                           password:@"1"
                                     successHandler:^(id  _Nullable data) {
-        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.keyring
+        self.testAcc = [self.sdk.api.keyring addAccountWithKeyring:self.sdk.keyring
                                                            keyType:@"mnemonic"
                                                                acc:data
                                                           password:@"1"];
@@ -114,8 +113,13 @@
 //
 //    }];
     //0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217
-    [self.sdk.api.tx signAndSendWithTxInfo:@{@"module":@"balances", @"call":@"transfer", @"sender":@{@"address":@"5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn", @"pubKey":@"0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217"}}.mutableCopy
-                                    params:@[@"5TffWUUbpKS2TkUviz5aZEbNAyJtH8MEaG5mkvXahhQtUz9b", @"1"].mutableCopy
+    [self.sdk.api.tx signAndSendWithTxInfo:@{@"module":@"balances",
+                                             @"call":@"transfer",
+                                             @"sender":@{@"address":
+                                                             @"5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn",
+                                                         @"pubKey":@"0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217"
+                                             }}.mutableCopy
+                                    params:@[@"5TffWUUbpKS2TkUviz5aZEbNAyJtH8MEaG5mkvXahhQtUz9b", @"10000"].mutableCopy
                                   password:@"1"
                             onStatusChange:^(id  _Nullable data) {
         
@@ -128,6 +132,31 @@
         
     }];
 }
+
+/*
+ txInfo---{
+     call = transfer;
+     module = balances;
+     sender =     {
+         address = 5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn;
+         pubKey = 0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217;
+     };
+ }
+ param---["5UB3xRTfwyh6JU4tRtBJznh7nLSxpzX8F7Dtpt63i6e9GtBC","1000000.000000"]
+
+ */
+
+/*
+ txInfo---{
+     call = transfer;
+     module = balances;
+     sender =     {
+         address = 5TiRjQMDebfGB2txVYxtbgrwKfAawsqskxFrmWC3sLXFBMqn;
+         pubKey = 0xb44c8b701d20de11c3b85f4b7cafcf2e066e783184359edd4ce5e21a75a40217;
+     };
+ }
+ param---["5TffWUUbpKS2TkUviz5aZEbNAyJtH8MEaG5mkvXahhQtUz9b","10000"]
+ */
 
 - (void)setUI
 {

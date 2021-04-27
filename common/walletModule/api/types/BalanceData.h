@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface BalanceData : MTLModel
 @property (nonatomic, copy) NSString *accountId;
 @property (nonatomic, strong) id accountNonce;
-@property (nonatomic, strong) id availableBalance;
+@property (nonatomic, assign) UInt64 availableBalance;
 @property (nonatomic, strong) id freeBalance;
 @property (nonatomic, strong) id frozenFee;
 @property (nonatomic, strong) id frozenMisc;

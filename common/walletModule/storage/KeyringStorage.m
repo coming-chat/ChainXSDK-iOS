@@ -40,6 +40,12 @@
     return [[NSUserDefaults alloc] initWithSuiteName:@"polka_coming_sdk"];
 }
 
+- (void)resetStorage
+{
+    [self.storage setValue:@[] forKey:@"keyPairs"];
+    [self.storage setValue:@[] forKey:@"contacts"];
+}
+
 - (NSArray *)keyPairs
 {
     return [self.storage arrayForKey:@"keyPairs"] ? : [[NSArray alloc] init];

@@ -77,6 +77,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)checkSeedExistWithKeyType:(NSString *)keyType
                            pubKey:(NSString *)pubKey;
 
+- (void)resetStore;
+
 @end
 
 NS_ASSUME_NONNULL_END

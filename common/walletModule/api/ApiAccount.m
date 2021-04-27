@@ -14,10 +14,10 @@
 - (void)encodeAddressWithPubKeys:(NSMutableArray<NSString *> *)pubKeys
                   successHandler:(void (^ _Nullable)(_Nullable id data))successHandler
 {
-    [self.service encodeAddressWithPubKeys:pubKeys ss58List:@[@(self.apiRoot.connectedNode.ss58)].mutableCopy successHandler:^(id  _Nullable data) {
-        if ([data isKindOfClass:NSMutableDictionary.class]) {
-            if ([((NSMutableDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%ld", (long)self.apiRoot.connectedNode.ss58]]) {
-                successHandler(data[[NSString stringWithFormat:@"%ld", (long)self.apiRoot.connectedNode.ss58]]);
+    [self.service encodeAddressWithPubKeys:pubKeys ss58List:@[@(self.service.serviceRoot.keyrings.ss58)].mutableCopy successHandler:^(id  _Nullable data) {
+        if ([data isKindOfClass:NSDictionary.class]) {
+            if ([((NSMutableDictionary *)data).allKeys containsObject:[NSString stringWithFormat:@"%ld", (long)self.service.serviceRoot.keyrings.ss58]]) {
+                successHandler(data[[NSString stringWithFormat:@"%ld", (long)self.service.serviceRoot.keyrings.ss58]]);
                 return;
             }
         }
@@ -71,7 +71,7 @@
 - (void)queryAddressWithAccountIndexWithIndex:(NSString *)index
                                successHandler:(void (^ _Nullable)(NSString *string))successHandler
 {
-    [self.service queryAddressWithAccountIndex:index ss58:(int)self.apiRoot.connectedNode.ss58 successHandler:^(id  _Nullable data) {
+    [self.service queryAddressWithAccountIndex:index ss58:(int)self.service.serviceRoot.keyrings.ss58 successHandler:^(id  _Nullable data) {
         if (data) {
             if (((NSArray *)data).count > 0) {
                 successHandler(data[0]);

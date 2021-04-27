@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *address;
 @property (nonatomic, copy) NSString *encoded;
 @property (nonatomic, copy) NSString *pubKey;
+@property (nonatomic, copy) NSString *rawSeed;
 
 @property (nonatomic, strong) NSMutableDictionary<NSString*, id> *encoding;
 @property (nonatomic, strong) NSMutableDictionary<NSString*, id> *meta;

@@ -62,7 +62,7 @@
     self.msgCompleters[method] = successHandler;
     [self.web evaluateJavaScript:script completionHandler:nil];
 }
-//successHandler    void (^)(id)    0x00000001053fd7b0
+
 - (void)connectNode:(NSArray<NetworkParams *> *)nodes
      successHandler:(void (^ _Nullable)(NetworkParams *data))successHandler
 {
@@ -72,10 +72,9 @@
     }
     [self evalJavascriptWithCode:[NSString stringWithFormat:@"settings.connect(%@)", jsonEncodeWithValue(endpoints)] successHandler:^(id  _Nullable data) {
         if (data) {
-            //wss://kusama-1.polkawallet.io:9944/
             for (NetworkParams *node in nodes) {
                 if ([node.endpoint isEqualToString:(NSString *)data]) {
-                    successHandler(data);
+                    successHandler(node);
                     return;;
                 }
             }
@@ -131,13 +130,23 @@
     if ([msgDict.allKeys containsObject:@"path"] && [msgDict.allKeys containsObject:@"data"]) {
         NSString *path = msgDict[@"path"];
         if (self.msgCompleters[path] != nil) {
-            if (![msgDict[@"data"] isKindOfClass:NSNull.class]) self.msgCompleters[path](msgDict[@"data"]);
+            if (![msgDict[@"data"] isKindOfClass:NSNull.class]) {
+                self.msgCompleters[path](msgDict[@"data"]);
+            }else{
+                self.msgCompleters[path](nil);
+            }
             [self.msgCompleters removeObjectForKey:path];
         }
         if ([self.msgHandlers.allKeys containsObject:@"path"]) {
             if (self.msgHandlers[@"path"]) {
                 self.msgHandlers[path](msgDict[@"data"]);
             }
+        }
+    }else if ([msgDict.allKeys containsObject:@"path"]){
+        NSString *path = msgDict[@"path"];
+        if ([path containsString:@"settings.connect"]) {
+            self.msgCompleters[path](@"wss://testnet.chainx.org/ws");
+            [self.msgCompleters removeObjectForKey:path];
         }
     }
 }

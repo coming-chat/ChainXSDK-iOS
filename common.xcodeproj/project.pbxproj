@@ -7,12 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		49EB000AED914212059AB36F /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */; };
+		0FE9CB88694505D9BA565620 /* Pods_common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86A62FD7DDC7D1F554E8A95C /* Pods_common.framework */; };
 		C233EDB0260ADD9F005243BA /* BalanceData.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDAF260ADD9F005243BA /* BalanceData.m */; };
 		C233EDB3260AE0B4005243BA /* ApiKeyring.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDB1260AE0B4005243BA /* ApiKeyring.m */; };
 		C233EDBA260AE588005243BA /* NetworkStateData.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDB9260AE588005243BA /* NetworkStateData.m */; };
 		C233EDC7260B4348005243BA /* AESCrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = C233EDC3260B4348005243BA /* AESCrypt.m */; };
-		C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; };
 		C2451A1C25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C255B735260DC5BB005AB9DD /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = C255B734260DC5BB005AB9DD /* main.js */; };
 		C255B739260DCAE0005AB9DD /* PolkawalletPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = C255B738260DCAE0005AB9DD /* PolkawalletPlugin.m */; };
@@ -63,7 +62,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlutterPluginSignalDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C6BF021A30BF82666435DB2 /* Pods-common.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-common.release.xcconfig"; path = "Target Support Files/Pods-common/Pods-common.release.xcconfig"; sourceTree = "<group>"; };
+		86A62FD7DDC7D1F554E8A95C /* Pods_common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1207BA09D2E159143B09AE4 /* Pods-common.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-common.debug.xcconfig"; path = "Target Support Files/Pods-common/Pods-common.debug.xcconfig"; sourceTree = "<group>"; };
 		C233EDAE260ADD9F005243BA /* BalanceData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BalanceData.h; sourceTree = "<group>"; };
 		C233EDAF260ADD9F005243BA /* BalanceData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BalanceData.m; sourceTree = "<group>"; };
 		C233EDB1260AE0B4005243BA /* ApiKeyring.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApiKeyring.m; sourceTree = "<group>"; };
@@ -142,8 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49EB000AED914212059AB36F /* Pods_FlutterPluginSignalDemo.framework in Frameworks */,
-				C2451A1B25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework in Frameworks */,
+				0FE9CB88694505D9BA565620 /* Pods_common.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +155,8 @@
 			children = (
 				FF0685E1E2D5B14DE54F02C9 /* Pods-FlutterPluginSignalDemo.debug.xcconfig */,
 				FB691A4F859A4648AC20098E /* Pods-FlutterPluginSignalDemo.release.xcconfig */,
+				B1207BA09D2E159143B09AE4 /* Pods-common.debug.xcconfig */,
+				4C6BF021A30BF82666435DB2 /* Pods-common.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -163,8 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C2451A1E25F601CA007AF229 /* App.framework */,
-				C2451A1A25F60199007AF229 /* Pods_FlutterPluginSignalDemo.framework */,
-				379AE3407D94FA8B5FE600AB /* Pods_FlutterPluginSignalDemo.framework */,
+				86A62FD7DDC7D1F554E8A95C /* Pods_common.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -409,15 +410,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-common/Pods-common-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-common/Pods-common-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FlutterPluginSignalDemo/Pods-FlutterPluginSignalDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-common/Pods-common-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D3804C2335C639626EE02AAE /* [CP] Check Pods Manifest.lock */ = {
@@ -435,7 +436,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FlutterPluginSignalDemo-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-common-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -618,7 +619,7 @@
 		};
 		C2EB097625EF736200EC965D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF0685E1E2D5B14DE54F02C9 /* Pods-FlutterPluginSignalDemo.debug.xcconfig */;
+			baseConfigurationReference = B1207BA09D2E159143B09AE4 /* Pods-common.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -637,7 +638,7 @@
 		};
 		C2EB097725EF736200EC965D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FB691A4F859A4648AC20098E /* Pods-FlutterPluginSignalDemo.release.xcconfig */;
+			baseConfigurationReference = 4C6BF021A30BF82666435DB2 /* Pods-common.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

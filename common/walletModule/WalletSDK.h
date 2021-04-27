@@ -14,10 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WalletSDK : NSObject
 @property (nonatomic, strong) PolkawalletApi *api;
 @property (nonatomic, strong) SubstrateService *service;
+@property (nonatomic, strong) Keyring *keyring;
+@property (nonatomic, assign) BOOL skip;
 
-- (instancetype)initWithKeyring:(Keyring *)keyring
-                  webViewRunner:(nullable WebViewRunner *)webViewParam
-                         jsCode:(nullable NSString *)jsCode;
++ (instancetype)shareInstance;
+
+- (void)connectNode;
 
 @end
 

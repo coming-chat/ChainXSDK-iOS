@@ -184,7 +184,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
     for (NSMutableDictionary<NSString *, id> *dict in ls) {
         if ([dict.allKeys containsObject:itemKey]) {
-            if (dict[itemKey] == itemValue) {
+            if ([dict[itemKey] isEqualToString:itemValue]) {
                 [ls removeObject:dict];
                 break;
             }
@@ -200,7 +200,7 @@ const int customCacheTimeLength = 10 * 60 * 1000;
     NSMutableArray<NSMutableDictionary<NSString *, id> *> *ls = [self getListWithStoreKey:storeKey];
     for (NSMutableDictionary<NSString *, id> *dict in ls) {
         if ([dict.allKeys containsObject:itemKey]) {
-            if (dict[itemKey] == itemValue) {
+            if ([dict[itemKey] isEqualToString:itemValue]) {
                 [ls removeObject:dict];
                 break;
             }

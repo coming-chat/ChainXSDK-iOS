@@ -26,6 +26,7 @@
         self.walletConnect = [[ServiceWalletConnect alloc] init];
         self.walletConnect.serviceRoot = self;
         self.webView = webViewParam ?:[[WebViewRunner alloc] init];
+        self.keyrings = keyring;
         
         [self.webView launchWithKeyring:self.keyring keyringStorage:keyring block:onInitiatedBlock jsCode:jsCode];
     }

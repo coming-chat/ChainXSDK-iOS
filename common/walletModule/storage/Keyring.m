@@ -41,7 +41,7 @@
 {
     if (self.allAccounts.count > 0) {
         for (KeyPairData *data in self.allAccounts) {
-            if (data.pubKey == self.store.currentPubKey) {
+            if ([data.pubKey isEqualToString:self.store.currentPubKey]) {
                 return data;
             }
         }
@@ -88,7 +88,7 @@
     NSMutableArray<KeyPairData *> *array = [self toModelArrayWithArray:self.keyPairs];
     for (int i = (int)array.count - 1; i >=0; i--) {
         KeyPairData *data = array[i];
-        if (data.pubKey == self.current.pubKey) {
+        if ([data.pubKey isEqualToString:self.current.pubKey]) {
             [array removeObject:data];
         }
     }
@@ -194,7 +194,7 @@
             // retain accounts from storageOld
             bool exist = false;
             for (NSMutableDictionary *mDict in [KeyringStorage shareInstance].keyPairs) {
-                if (mDict[@"pubKey"] == dict[@"pubKey"]) {
+                if ([mDict[@"pubKey"] isEqualToString:dict[@"pubKey"]]) {
                     exist = true;
                     break;
                 }
@@ -425,5 +425,9 @@
     }
 }
 
+- (void)resetStore
+{
+    [[KeyringStorage shareInstance] resetStorage];
+}
 
 @end

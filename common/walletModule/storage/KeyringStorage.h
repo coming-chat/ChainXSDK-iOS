@@ -19,7 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableDictionary *encryptedRawSeeds;
 @property (nonatomic, strong) NSMutableDictionary *encryptedMnemonics;
 
-+(instancetype)shareInstance;
++ (instancetype)shareInstance;
+
+- (void)resetStorage;
 
 @end
 

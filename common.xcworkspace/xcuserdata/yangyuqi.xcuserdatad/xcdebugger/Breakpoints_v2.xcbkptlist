@@ -19,32 +19,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "573C959F-E435-467A-B260-4C86BBCF09E6"
+            uuid = "26637A95-A6F8-4D6F-A391-81A7CC7C03DB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "common/walletModule/storage/Keyring.m"
+            filePath = "common/walletModule/api/ApiKeyring.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "283"
-            endingLineNumber = "283"
-            landmarkName = "-updateKeyPairWithAcc:"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-updateIndicesMapWithKeyring:addresses:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "75686209-62A0-4577-AE50-D4E980E40BF8"
+            uuid = "C1CFA59D-B474-4F4B-9A41-AAB3100583A9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "common/walletModule/storage/Keyring.m"
+            filePath = "common/walletModule/api/ApiKeyring.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "209"
-            endingLineNumber = "209"
-            landmarkName = "-loadKeyPairsFromStorage"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "-updateIndicesMapWithKeyring:addresses:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
